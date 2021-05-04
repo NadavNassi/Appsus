@@ -1,5 +1,8 @@
 @import "./cmps/nav-header-cmps.css";
 @import "./helpers.css";
+@import "../../apps/book/assets/css/book-main.css";
+@import "../../apps/mail/assets/css/mail-main.css";
+@import "../../apps/note/assets/css/note-main.css";
 body {
     background-color: lightblue;
 }
