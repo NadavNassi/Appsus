@@ -6,18 +6,22 @@ import {NoteModal} from './NoteModal.jsx';
     state = {
 
     }
-
-
+ 
     render(){
+        const {onPinnedNote,onDeleteNote,onEditNote,id} = this.props;
+        
         return(
             <section>
                 <div className="edit-line-container">
-                    <button className="note-btn"><i className="fas fa-thumbtack"></i></button>
+                    <button className={`note-btn `} onClick={()=>{
+                        onPinnedNote(id)
+                    }    
+                    }><i className="fas fa-thumbtack"></i></button>
                     <button className="note-btn"><i className="fas fa-palette"></i></button>
-                    <Route component={()=><NoteModal onEditNote={this.props.onEditNote}/>} path="/note/edit/:id" />
-                    <Link className="note-btn" to={`/note/edit/${this.props.id}`} ><i className="fas fa-edit"></i></Link>
+                    <Route component={()=><NoteModal onEditNote={onEditNote}/>} path="/note/edit/:id" />
+                    <Link className="note-btn" to={`/note/edit/${id}`} ><i className="fas fa-edit"></i></Link>
                     <button onClick={() =>{
-                        this.props.onDeleteNote(this.props.id)
+                        onDeleteNote(id)
                     }} className="note-btn"><i className="fas fa-trash-alt"></i></button>
                 </div>
             </section>

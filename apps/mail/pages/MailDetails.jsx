@@ -19,7 +19,7 @@ export class MailDetails extends React.Component {
     });
   };
   render() {
-    if (!this.state.mail) return <Loader />;
+    if (!this.state.mail) return <div>loading...</div>;
     const { from, subject, body, id } = this.state.mail;
     return (
       <section className='mail-details flex'>
