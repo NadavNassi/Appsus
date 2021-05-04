@@ -22,10 +22,14 @@ const { NavLink, withRouter } = ReactRouterDOM
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/note">Note</NavLink>
               </li>
               <li>
-              <NavLink to="/addBook">Add Book</NavLink>
+              <NavLink to="/mail">Mail</NavLink>
+               
+              </li>
+              <li>
+              <NavLink to="/book">Book</NavLink>
                
               </li>
             </ul>
