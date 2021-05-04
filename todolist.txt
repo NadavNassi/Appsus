@@ -1,0 +1,2 @@
+favicon
+click logo => home page
