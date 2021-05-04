@@ -52,6 +52,12 @@
   margin: 0;
 }
 
+
+/* Anchor */
+.decoration-none{
+  text-decoration: none;
+}
+
 /* MARGIN */
 .mb-1{
   margin-bottom: 0.3rem;
