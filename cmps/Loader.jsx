@@ -1,8 +1,8 @@
 export function Loader() {
   return (
     //loader
-    <div>
-      <img className='loader' src='../assets/img/tail-spin.svg' alt='' />
-    </div>
+    <section className="loader modal-container">
+      <img className="loader" src="../assets/img/tail-spin.svg" alt="" />
+    </section>
   );
 }
