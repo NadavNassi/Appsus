@@ -5,8 +5,14 @@
 @import "../../apps/book/assets/css/book-main.css";
 @import "../../apps/mail/assets/css/mail-main.css";
 @import "../../apps/note/assets/css/note-main.css";
+
+
+*{
+    box-sizing: border-box;
+}
 body {
   background-color: lightblue;
+  margin: 0;
 }
 
 /* LOADER */

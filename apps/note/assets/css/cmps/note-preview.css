@@ -7,6 +7,7 @@
     margin: .4rem;
     padding: .4rem;
     width:250px;
+    word-wrap: break-word;
 }
 
 
