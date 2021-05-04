@@ -6,9 +6,8 @@
 @import "../../apps/mail/assets/css/mail-main.css";
 @import "../../apps/note/assets/css/note-main.css";
 
-
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 body {
   background-color: lightblue;
@@ -24,4 +23,8 @@ body {
 .loader-svg {
   margin-top: 0;
   width: 80vw;
+}
+
+textarea {
+  resize: none;
 }

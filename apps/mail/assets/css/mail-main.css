@@ -2,3 +2,9 @@
 @import "./cmps/mail-list.css";
 @import "./cmps/mail-details.css";
 @import "./cmps/mail-filter.css";
+
+.compose-btn {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
