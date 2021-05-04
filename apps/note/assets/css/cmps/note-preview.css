@@ -1,0 +1,16 @@
+
+
+.note-container{
+    display:flex;
+    flex-direction:column;
+    background-color: #fff;
+    margin: .4rem;
+    padding: .4rem;
+    width:250px;
+}
+
+
+  .note-container >*{
+     padding: .3rem;
+  }
+  

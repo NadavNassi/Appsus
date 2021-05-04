@@ -11,7 +11,7 @@ const {Link, NavLink, withRouter } = ReactRouterDOM
         <div className="nav-header">
           <div className="nav-logo">
             <Link exact='true' to="/" className="decoration-none"> 
-              <h2 className="nav-logo-title">BookShop</h2>
+              <h2 className="nav-logo-title">AppSus</h2>
               </Link>
           </div>
           <div>
