@@ -14,7 +14,7 @@ export function MailPreview({ mail }) {
     const txt = body.length > 20 ? body.substring(0, 100) + "..." : body;
     return txt;
   };
-  const isUnread = () => {
+  const getIsUnread = () => {
     return isUnread;
   };
   return (
