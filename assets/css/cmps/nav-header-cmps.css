@@ -1,0 +1,45 @@
+/* NAVBAR HEADER */
+.nav-header {
+    display: flex;
+    color: #fff;
+    box-shadow: 1px 2px 1px;
+    color: blueviolet;
+  }
+  .nav-logo-title {
+    font-family: "Open Sans", sans-serif;
+    margin-inline-end: 2rem;
+    padding: .3rem;
+  }
+  .anchor-header-list{
+    height: 100%;
+    align-items: center;
+    display: flex;
+  }
+  .anchor-header-list >*{
+    margin-inline-end: 1rem;
+  }
+  .anchor-header-list a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: .3rem;
+  
+    border-radius: .3rem;
+  }
+  .go-back{
+    font-size:1.3rem;
+    color: #fff;
+    background-color: rgb(38, 40, 41);
+    margin: .3rem;
+    align-self: flex-start;
+  }
+
+  .book-data .btn{
+    margin: .12rem;
+  }
+  .active , .active-nav{
+    background-color: rgb(255, 174, 0);
+    color: rgb(0, 0, 0);
+  }
+
+ 

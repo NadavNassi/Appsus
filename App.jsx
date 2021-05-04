@@ -1,14 +1,15 @@
-const Router = ReactRouterDOM.HashRouter
-const {Route, Switch} = ReactRouterDOM
+const Router = ReactRouterDOM.HashRouter;
+const { Route, Switch } = ReactRouterDOM;
 
-import {AppHeader} from './cmps/AppHeader.jsx'
+import { AppHeader } from "./cmps/AppHeader.jsx";
 
 export function App() {
-    return(
-        <Router>
-            <main>
+  return (
+    <Router>
+      <header>
         <AppHeader />
-            </main>
-        </Router>
-    )
+      </header>
+      <main></main>
+    </Router>
+  );
 }
