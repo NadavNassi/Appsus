@@ -1,15 +1,6 @@
+@import "../../apps/mail/assets/css/mail-main.css";
 @import "./cmps/nav-header-cmps.css";
 @import "./helpers.css";
 body {
-    background-color: lightblue;
-}
-
-.user-preview {
-    background-color: darkcyan;
-    padding: 5px;
-    width: 200px;
-    text-align: center;    
-}
-.user-preview button {
-    margin: 5px;
+  background-color: lightblue;
 }
