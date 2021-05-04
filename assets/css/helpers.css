@@ -53,6 +53,10 @@
   gap: 10px 10px;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 /* LIST */
 .clean-list {
   list-style: none;
@@ -65,10 +69,6 @@
 .decoration-none {
   text-decoration: none;
 }
-
-
-
-
 
 /* MARGIN */
 .mb-1 {
@@ -112,9 +112,9 @@
 .green {
   color: green;
 }
-.black{
+.black {
   color: black;
 }
-.white{
+.white {
   color: white;
 }

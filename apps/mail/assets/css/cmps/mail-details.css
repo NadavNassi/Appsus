@@ -1,0 +1,6 @@
+.mail-details .mail > :not(:last-child) {
+  border-bottom: 1px solid black;
+}
+
+.mail-details .delete-btn {
+}

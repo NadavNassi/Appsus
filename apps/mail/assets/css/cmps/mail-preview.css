@@ -1,10 +1,15 @@
 .mail-list .mail-preview {
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 10% 10% 70% 10%;
   border: 1px solid rgb(34, 34, 34);
   padding: 10px;
   cursor: pointer;
+  color: black;
 }
 
 .mail-list .mail-preview:nth-child(odd) {
   background-color: lightcyan;
+}
+
+.mail-list .unread {
+  font-weight: bolder;
 }

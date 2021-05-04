@@ -1,2 +1,6 @@
-
-
+.mail-list .mail-header {
+  grid-template-columns: 10% 10% 70% 10%;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: blanchedalmond;
+}
