@@ -4,10 +4,11 @@ export class NoteList extends React.Component {
     state = {}
  
     render(){
+        const {notes,onDeleteNote,onEditNote} = this.props
         return(
             <section className="notes-container">
-                {this.props.notes.map((note,index) =>{
-                    return <NotePreview key={index} note={note} onDeleteNote={this.props.onDeleteNote} onEditNote={this.props.onEditNote}/>
+                {notes.map((note) =>{
+                    return <NotePreview key={note.id} note={note} onDeleteNote={onDeleteNote} onEditNote={onEditNote}/>
                 })}
             </section>
         )

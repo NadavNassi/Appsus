@@ -18,14 +18,16 @@ export class NoteApp extends React.Component {
     });
   }
 
-  onDeleteNote = (noteId)=> {
-    noteService.removeNote(noteId);
-    this.loadNotes();
-  }
-  onEditNote = (note,nodeId)=>{
-    noteService.editNote(note,nodeId);
-    this.loadNotes();
-  }
+  onDeleteNote = (noteId) => {
+    noteService.removeNote(noteId).then(()=>{
+        this.loadNotes();
+    })
+  };
+  onEditNote = (note, nodeId) => {
+    noteService.editNote(note, nodeId).then(()=>{
+        this.loadNotes();
+    })
+  };
   render() {
     const { notes, filter, selectedNote } = this.state;
 
@@ -33,8 +35,11 @@ export class NoteApp extends React.Component {
     return (
       <section className="note-page-container">
         <section className="container">
-         
-          <NoteList onEditNote={this.onEditNote} onDeleteNote={this.onDeleteNote} notes={notes} />
+          <NoteList
+            onEditNote={this.onEditNote}
+            onDeleteNote={this.onDeleteNote}
+            notes={notes}
+          />
         </section>
         <Route component={NoteModal} path="/note/add-note" />
         <Link className="add-note" to={`/note/add-note`}>
