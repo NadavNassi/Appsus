@@ -22,13 +22,12 @@ export class MailDetails extends React.Component {
     if (!this.state.mail) return <Loader />;
     const { from, subject, body, id } = this.state.mail;
     return (
-      <section className='mail-details'>
+      <section className='mail-details flex'>
         <div className='edit-mail flex flex-direction-column'>
           <button
             className='btn delete-btn right-self'
             onClick={() => this.onDeleteMail()}
           >
-            {" "}
             Delete mail
           </button>
         </div>
