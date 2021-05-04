@@ -1,6 +1,6 @@
-import { MailPreview } from "./MailPreview.jsx";
+import { MailPreview } from './MailPreview.jsx';
 
-export function MailList({ mails, onShowMail }) {
+export function MailList({ mails, onReadMail }) {
   return (
     <section className='mail-list'>
       <div className='mail-header grid grid-gap center'>
@@ -11,7 +11,7 @@ export function MailList({ mails, onShowMail }) {
       </div>
       {mails.map((mail) => {
         return (
-          <MailPreview key={mail.id} mail={mail} onShowMail={onShowMail} />
+          <MailPreview key={mail.id} mail={mail} onReadMail={onReadMail} />
         );
       })}
     </section>

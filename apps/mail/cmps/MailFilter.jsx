@@ -1,10 +1,10 @@
-import { eventBusService } from "../../../services/event.bus.service.js";
+import { eventBusService } from '../../../services/event.bus.service.js';
 
 export class MailFilter extends React.Component {
   state = {
     filterBy: {
-      txt: "",
-      mailStatus: "",
+      txt: '',
+      mailStatus: '',
     },
     mailCount: 0,
     unreadMailCount: 0,
@@ -12,7 +12,7 @@ export class MailFilter extends React.Component {
   removeEvent;
   componentDidMount() {
     this.removeEvent = eventBusService.on(
-      "mail-count",
+      'mail-count',
       ({ mailCount, unreadMailCount }) => {
         this.setState({ mailCount, unreadMailCount });
       }
@@ -58,8 +58,8 @@ export class MailFilter extends React.Component {
         </select>
         <button>Search</button>
         <p>
-          You have {this.state.unreadMailCount} of {this.state.mailCount} total
-          mails
+          You have {this.state.unreadMailCount} unread mails of
+          {this.state.mailCount} mails total
         </p>
       </form>
     );
