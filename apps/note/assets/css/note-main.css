@@ -1,0 +1,16 @@
+@import "./cmps/edit-btns.css";
+@import "./cmps/note-preview.css";
+@import "./cmps/edit-line.css";
+
+.notes-container{
+    max-width:1200px;
+    margin: 1.2rem;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.container{
+    display: flex;
+    justify-content:center;
+}

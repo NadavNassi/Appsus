@@ -66,6 +66,10 @@
   text-decoration: none;
 }
 
+
+
+
+
 /* MARGIN */
 .mb-1 {
   margin-bottom: 0.3rem;
@@ -107,4 +111,10 @@
 }
 .green {
   color: green;
+}
+.black{
+  color: black;
+}
+.white{
+  color: white;
 }
