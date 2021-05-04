@@ -10,9 +10,9 @@ const { NavLink, withRouter } = ReactRouterDOM
       <nav>
         <div className="nav-header">
           <div className="nav-logo">
-            <h2 className="nav-logo-title">
+            <NavLink className='nav-logo-title' to='/'>
               BookShop
-            </h2>
+            </NavLink>
           </div>
           <div>
             <ul className="anchor-header-list clean-list">
