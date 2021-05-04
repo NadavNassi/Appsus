@@ -1,7 +1,7 @@
 
 // import { eventBusService } from '../services/event-bus-service.js'
 
-const { NavLink, withRouter } = ReactRouterDOM
+const {Link, NavLink, withRouter } = ReactRouterDOM
 
  class _NavHeader extends React.Component {
   state = {};
@@ -10,9 +10,9 @@ const { NavLink, withRouter } = ReactRouterDOM
       <nav>
         <div className="nav-header">
           <div className="nav-logo">
-            <NavLink className='nav-logo-title' to='/'>
-              BookShop
-            </NavLink>
+            <Link exact='true' to="/" className="decoration-none"> 
+              <h2 className="nav-logo-title">BookShop</h2>
+              </Link>
           </div>
           <div>
             <ul className="anchor-header-list clean-list">
@@ -22,10 +22,14 @@ const { NavLink, withRouter } = ReactRouterDOM
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/note">Note</NavLink>
               </li>
               <li>
-              <NavLink to="/addBook">Add Book</NavLink>
+              <NavLink to="/mail">Mail</NavLink>
+               
+              </li>
+              <li>
+              <NavLink to="/book">Book</NavLink>
                
               </li>
             </ul>
