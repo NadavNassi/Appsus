@@ -100,14 +100,12 @@ function toggleIsRead(mailId) {
 }
 
 function sendMail(composedMail) {
-  const pmr = new Promise((res) => {
-    _createMail(composedMail)
-    return res = gMails
-  })
-  return pmr
+  return _createMail(composedMail)
+    .then(() => Promise.resolve(gMails))
 }
 
 function _createMail({ subject, body }) {
+  console.log('in create mail');
   const newMail = {
     id: makeId(),
     from: makeLorem(1),

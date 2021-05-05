@@ -45,12 +45,7 @@ export class MailApp extends React.Component {
   onComposeMail = (composeMail) => {
     mailService.sendMail(composeMail)
       .then((mails) => {
-        this.setState(prevState => ({
-          mails: {
-            ...prevState,
-            mails
-          }
-        }))
+        this.setState({ mails })
         this.props.history.push('/mail')
       })
   };
