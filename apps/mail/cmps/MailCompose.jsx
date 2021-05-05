@@ -1,4 +1,6 @@
-export class MailCompose extends React.Component {
+const { withRouter } = ReactRouterDOM
+
+class _MailCompose extends React.Component {
 
   state = {
     composeMail: {
@@ -19,6 +21,11 @@ export class MailCompose extends React.Component {
       composeMail: { ...composeMail, [field]: value },
     }));
   };
+
+  onCloseModal = () => {
+    this.props.history.push('/mail')
+  }
+
 
   render() {
     const { subject, body } = this.state.composeMail
@@ -44,10 +51,17 @@ export class MailCompose extends React.Component {
               className='compose-body'
               onChange={this.handleChange}
             ></textarea>
-            <button>Send!</button>
+            <div className="edit-line flex">
+              <button onClick={this.onCloseModal}>Discard</button>
+              <button type='submit'>Send!</button>
+            </div>
           </form>
         </div>
       </React.Fragment>
     );
   }
 }
+
+
+export const MailCompose = withRouter(_MailCompose)
+

@@ -30,7 +30,7 @@
     transform: translate(-50%, -50%);
     width: 80%;
     z-index: 20;
-    background-color: lightgreen;
+    background-color: rgb(185, 187, 174);
     height: 70vh;
     display: grid;
     grid-template-columns: 20% 80%;
@@ -42,15 +42,17 @@
 .compose-subject {
     width: 75%;
     height: auto;
+    border: 1px solid black;
 }
 
 .compose-body {
     width: 75%;
     height: 60%;
+    border: 1px solid black;
 }
 
-.compose-mail button {
-    position: fixed;
-    z-index: 20;
-    bottom: 2.5%;
+.compose-mail .edit-line {
+    grid-column: 1 / -1;
+    width: 50%;
+    justify-content: space-around;
 }

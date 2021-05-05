@@ -1,0 +1,20 @@
+.side-nav {
+    border-right: 1px solid black;
+}
+
+.side-nav-list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.side-nav-list>* {
+    margin-inline-start: 20%;
+    margin-bottom: 15px;
+    justify-items: flex-start;
+    font-size: 1.2rem;
+}
+
+.labels-title {
+    text-align: center;
+}

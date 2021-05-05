@@ -1,4 +1,5 @@
 /* NAVBAR HEADER */
+
 nav {
   margin-bottom: 15px;
 }
@@ -9,9 +10,10 @@ nav {
   justify-content: space-between;
   border-bottom: 2px solid blueviolet;
 }
+
 .nav-logo-title {
   color: blueviolet;
-  font-family: "Open Sans", sans-serif;
+  font-family: pacifico;
   margin-inline-end: 2rem;
   padding: 0.3rem;
 }
@@ -50,6 +52,7 @@ nav {
   width: 50px; 
   align-items: center;
 }
+
 .anchor-header-list a {
   text-decoration: none;
   font-size: 2.5rem;
@@ -61,7 +64,6 @@ nav {
 .nav-toggle-container{
   display: flex;
 }
-
 
 .go-back {
   font-size: 1.3rem;

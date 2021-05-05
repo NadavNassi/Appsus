@@ -1,7 +1,9 @@
-const { Link } = ReactRouterDOM;
+const { Link, Route } = ReactRouterDOM;
 
-export function MailPreview({ mail, onReadMail }) {
-  const { subject, body, sentAt, isRead } = mail;
+import { MailDetails } from '../pages/MailDetails.jsx'
+
+export function MailPreview({ mail, onReadMail, onRemoveMail }) {
+  const { subject, body, sentAt, isRead, from } = mail;
   const getHour = () => {
     return sentAt.getHours();
   };
@@ -16,21 +18,16 @@ export function MailPreview({ mail, onReadMail }) {
     const txt = body.length > 20 ? body.substring(0, 100) + '...' : body;
     return txt;
   };
+
   return (
     <React.Fragment>
-      <Link to={`/mail/read/${mail.id}`} className='decoration-none'>
-        <section
-          className={`mail-preview grid grid-gap center ${!isRead && 'unread'}`}
-          onClick={() => onReadMail(mail.id)}
-        >
-          <div className='from'>{mail.from}</div>
-          <div className='subject'>{subject}</div>
-          <div className='body'>{getBody()}</div>
-          <div className='sent-at'>
-            {getHour()}:{getMinutes()}
-          </div>
-        </section>
+      <Link className={!isRead && 'active'} to={`/mail/read/${mail.id}`} className={`decoration-none ${!isRead && 'unread'}`}>{from}</Link>
+      <Link className={!isRead && 'active'} to={`/mail/read/${mail.id}`} className={`decoration-none ${!isRead && 'unread'}`}>{subject}</Link>
+      <Link className={!isRead && 'active'} to={`/mail/read/${mail.id}`} className={`decoration-none ${!isRead && 'unread'}`}>{getBody()}</Link>
+      <Link className={!isRead && 'active'} to={`/mail/read/${mail.id}`} className={`decoration-none ${!isRead && 'unread'}`}>
+        {getHour()}:{getMinutes()}
       </Link>
+      <button className='btn btn-remove' onClick={() => onRemoveMail(mail.id)}><i className="fas fa-trash-alt"></i></button>
     </React.Fragment>
   );
 }
