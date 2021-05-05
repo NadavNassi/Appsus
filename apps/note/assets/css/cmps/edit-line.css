@@ -1,5 +1,25 @@
-
-
-.edit-line-container{
+.edit-line-container {
     align-self: flex-end;
+}
+
+/*/////////notes color///////*/
+
+.inherit {
+    background-color: inherit;
+}
+
+.white {
+    background-color: rgb(255, 255, 255);
+}
+
+.pink {
+    background-color: rgb(252, 113, 117);
+}
+
+.light-orange {
+    background-color: rgb(255, 193, 117);
+}
+
+.light-yellow {
+    background-color: rgb(255, 255, 118);
 }

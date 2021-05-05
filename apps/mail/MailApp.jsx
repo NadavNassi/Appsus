@@ -42,23 +42,24 @@ export class MailApp extends React.Component {
     });
   };
 
-  onComposeMail = (mail) => {
-    console.log(mail);
+  onComposeMail = (composeMail) => {
+    mailService.sendMail(composeMail)
+      .then((mails) => {
+        this.setState({ mails })
+        this.props.history.push('/mail')
+      })
   };
 
   render() {
     const { mails } = this.state;
-    if (!this.state.mails) return <div></div>;
+    if (!this.state.mails) return <Loader />;
     return (
       <section className="mail-app">
         <MailFilter onSetFilter={this.onSetFilter} />
         <MailList mails={mails} onReadMail={this.onReadMail} />
 
-        <Route
-          component={() => <MailCompose onComposeMail={this.onComposeMail} />}
-          path={"/mail/compose-mail"}
-        />
-        <Link className="compose-btn" to="/mail/compose-mail">
+        <Route exact component={() => <MailCompose onComposeMail={this.onComposeMail} />} exact path={'/mail/compose-mail'} />
+        <Link className='compose-btn' to='/mail/compose-mail'>
           +
         </Link>
       </section>
