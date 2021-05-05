@@ -40,7 +40,6 @@ const gUser = {
     'inbox',
     'star'
   ]
-
 }
 
 
@@ -61,39 +60,23 @@ export const mailService = {
 };
 
 function query(filterBy) {
-  if (!filterBy) {
-    return Promise.resolve();
+  console.log(filterBy);
+  if (!filterBy.txt && !filterBy.mailStatus) {
+    return Promise.resolve(gUser);
   }
-  let { txt, mailStatus } = filterBy;
-  mailStatus = getMailStatus(mailStatus);
-  if (mailStatus === null) {
-    const filteredBy = {}
-    filteredBy.mails = gUser.mails.filter((mail) => {
-      return (
-        mail.subject.toUpperCase().includes(txt.toUpperCase()) &&
-        mail.from.toUpperCase().includes(txt.toUpperCase()) &&
-        mail.body.toUpperCase().includes(txt.toUpperCase())
-      );
-    });
-    filteredBy.labels = gUser.labels
-    return Promise.resolve(filteredBy);
-  } else {
-    const filteredBy = {}
-    filteredBy.mail = gUser.mails.filter((mail) => {
-      return (
-        mail.subject.toUpperCase().includes(txt.toUpperCase()) &&
-        mail.from.toUpperCase().includes(txt.toUpperCase()) &&
-        mail.body.toUpperCase().includes(txt.toUpperCase()) &&
-        mail.isRead === mailStatus
-      );
-    });
-    console.log('in if');
-    filteredBy.labels = gUser.labels
-    return Promise.resolve(filteredBy);
-  }
-
+  const { txt, mailStatus } = filterBy;
+  const filteredBy = {}
+  filteredBy.mails = gUser.mails.filter((mail) => {
+    return (
+      mail.subject.toUpperCase().includes(txt.toUpperCase()) ||
+      mail.from.toUpperCase().includes(txt.toUpperCase()) ||
+      mail.body.toUpperCase().includes(txt.toUpperCase()) &&
+      mail.isRead === mailStatus
+    );
+  });
+  filteredBy.labels = gUser.labels
+  return Promise.resolve(filteredBy);
 }
-
 
 function getMailStatus(mailStatus) {
   let status = null;
@@ -129,7 +112,7 @@ function toggleIsRead(mailId) {
 
 function sendMail(composedMail) {
   return _createMail(composedMail)
-    .then(() => Promise.resolve(gMails))
+    .then(() => Promise.resolve(gUser.mails))
 }
 
 function _createMail({ subject, body }) {

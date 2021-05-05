@@ -65,20 +65,19 @@ export class MailApp extends React.Component {
       })
   };
 
-  onRemoveMail = (mailId) => {
-    mailService.remove(mailId).then((mails) => {
-      this.setState({ mails });
-    });
-  };
-
   onLabelSelect = (label) => {
     mailService.getByLabel(label)
       .then(mails => this.setState({ mails }))
   }
 
+  onRemoveMail = (mailId) => {
+    mailService.remove(mailId)
+      .then(mails => this.setState({ mails }))
+  }
+
   render() {
     const { mails, labels } = this.state;
-    if (!mails) return <Loader />;
+    if (!mails) return <Loader />
     return (
       <section className='mail-app'>
         <MailFilter onSetFilter={this.onSetFilter} />

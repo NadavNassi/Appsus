@@ -21,11 +21,10 @@ export function MailPreview({ mail, onReadMail, onRemoveMail }) {
 
   return (
     <React.Fragment>
-      {/* <Route component={() => <MailDetails onRemoveMail={onRemoveMail} path='/mail/read/:mailId' />} /> */}
-      <Link to={`/mail/read/${mail.id}`} className='decoration-none from'>{from}</Link>
-      <Link to={`/mail/read/${mail.id}`} className='decoration-none subject'>{subject}</Link>
-      <Link to={`/mail/read/${mail.id}`} className='decoration-none body'>{getBody()}</Link>
-      <Link to={`/mail/read/${mail.id}`} className='decoration-none sent-at'>
+      <Link className={!isRead && 'active'} to={`/mail/read/${mail.id}`} className={`decoration-none ${!isRead && 'unread'}`}>{from}</Link>
+      <Link className={!isRead && 'active'} to={`/mail/read/${mail.id}`} className={`decoration-none ${!isRead && 'unread'}`}>{subject}</Link>
+      <Link className={!isRead && 'active'} to={`/mail/read/${mail.id}`} className={`decoration-none ${!isRead && 'unread'}`}>{getBody()}</Link>
+      <Link className={!isRead && 'active'} to={`/mail/read/${mail.id}`} className={`decoration-none ${!isRead && 'unread'}`}>
         {getHour()}:{getMinutes()}
       </Link>
       <button className='btn btn-remove' onClick={() => onRemoveMail(mail.id)}><i className="fas fa-trash-alt"></i></button>

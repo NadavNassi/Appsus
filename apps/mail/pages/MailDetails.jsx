@@ -18,13 +18,15 @@ class _MailDetails extends React.Component {
 
   onRemoveMail = () => {
     const { mailId } = this.props.match.params;
+    console.log('before history push');
     mailService.remove(mailId).then(() => {
-      this.props.history.push("/mail");
-    });
+      this.props.history.push('/mail');
+    })
   };
 
   onRemoveLabels = (label) => {
-    mailService.removeLabel(this.state.mail.id, label)
+    const { mailId } = this.props.match.params;
+    mailService.removeLabel(mailId, label)
       .then(mail => this.setState({ mail }))
   }
 
@@ -52,7 +54,7 @@ class _MailDetails extends React.Component {
         <div className='edit-mail flex flex-direction-column'>
           <button
             className='btn delete-btn right-self'
-            onClick={() => this.onRemoveMail()}
+            onClick={this.onRemoveMail}
           >
             Delete mail
           </button>
