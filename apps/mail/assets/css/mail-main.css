@@ -1,11 +1,27 @@
-@import "./cmps/mail-preview.css";
-@import "./cmps/mail-list.css";
-@import "./cmps/mail-details.css";
-@import "./cmps/mail-filter.css";
+@import './cmps/mail-preview.css';
+@import './cmps/mail-list.css';
+@import './cmps/mail-details.css';
+@import './cmps/mail-filter.css';
 @import '../css/cmps/mail-compose.css';
-
+@import './cmps/side-nav.css';
+@import './cmps/label-add.css';
 .compose-btn {
   position: fixed;
   bottom: 50px;
   right: 50px;
+}
+
+.fa-plus {
+  background-color: ivory;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 2rem;
+  color: black;
+  box-shadow: 0 0 10px 0;
+}
+
+.mail-app-grid {
+  border-top: 1px solid black;
+  grid-template-columns: 10% 90%;
+  height: 100vh;
 }

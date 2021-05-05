@@ -13,3 +13,7 @@
 .mail-list .unread {
   font-weight: bolder;
 }
+
+.preview-container {
+  grid-template-columns: repeat(2, auto);
+}
