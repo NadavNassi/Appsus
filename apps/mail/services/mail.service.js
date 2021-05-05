@@ -38,6 +38,7 @@ export const mailService = {
   getMailById,
   deleteMail,
   toggleIsRead,
+  sendMail
 };
 
 function query(filterBy) {
@@ -96,4 +97,25 @@ function toggleIsRead(mailId) {
   const chosenMailIdx = gMails.findIndex((mail) => mail.id === mailId);
   gMails[chosenMailIdx].isRead = true;
   return Promise.resolve(gMails)
+}
+
+function sendMail(composedMail) {
+  const pmr = new Promise((res) => {
+    _createMail(composedMail)
+    return res = gMails
+  })
+  return pmr
+}
+
+function _createMail({ subject, body }) {
+  const newMail = {
+    id: makeId(),
+    from: makeLorem(1),
+    subject: subject,
+    body: body,
+    isRead: false,
+    sentAt: new Date(Date.now()),
+  }
+  gMails.push(newMail)
+  return Promise.resolve('success')
 }

@@ -18,7 +18,7 @@ export function MailPreview({ mail, onReadMail }) {
   };
   return (
     <React.Fragment>
-      <Link to={`/mail/${mail.id}`} className='decoration-none'>
+      <Link to={`/mail/read/${mail.id}`} className='decoration-none'>
         <section
           className={`mail-preview grid grid-gap center ${!isRead && 'unread'}`}
           onClick={() => onReadMail(mail.id)}
