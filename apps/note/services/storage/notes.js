@@ -3,189 +3,189 @@ export const notes = [
     {
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }
     },{
         id:utilService.makeId(),
         type: "NoteText",
-        isPinned: true,
+        isPinned: false,
         info: {
             txt: "Fullstack Me Baby!"
         }

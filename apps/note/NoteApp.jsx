@@ -7,7 +7,7 @@ export class NoteApp extends React.Component {
   state = {
     notes: null,
     filter: null,
-    selectedNote: null,
+    selectedNote: null
   };
   componentDidMount() {
     this.loadNotes();
@@ -28,9 +28,18 @@ export class NoteApp extends React.Component {
         this.loadNotes();
     })
   };
+  onPinnedNote = (nodeId) => {
+    noteService.pinNote(nodeId).then(()=>{
+        this.loadNotes();
+    })
+  }
+  onAddNote = (note)=>{
+      noteService.onAddNote(note).then(()=>{
+          this.loadNotes();
+      })
+  }
   render() {
-    const { notes, filter, selectedNote } = this.state;
-
+    const { notes, filter, selectedNote  } = this.state;
     if (!notes) return <div>Loading...</div>;
     return (
       <section className="note-page-container">
@@ -38,10 +47,11 @@ export class NoteApp extends React.Component {
           <NoteList
             onEditNote={this.onEditNote}
             onDeleteNote={this.onDeleteNote}
+            onPinnedNote={this.onPinnedNote}
             notes={notes}
           />
         </section>
-        <Route component={NoteModal} path="/note/add-note" />
+        <Route component={()=><NoteModal onAddNote={this.onAddNote}/>} path="/note/add-note" />
         <Link className="add-note" to={`/note/add-note`}>
           <h2>
             <i className="fas fa-plus"></i>

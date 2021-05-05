@@ -24,7 +24,7 @@ class _NoteModal extends React.Component {
   };
   handleStateChange = () => {
     if(this.state.noteState === 'Add'){
-      noteService.onAddNote(this.state.note);
+      this.props.onAddNote(this.state.note);
     }else{
       this.props.onEditNote(this.state.note,this.props.match.params.id)
     }
