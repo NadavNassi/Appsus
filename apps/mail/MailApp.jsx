@@ -32,17 +32,7 @@ export class MailApp extends React.Component {
   };
 
   onReadMail = (mailId) => {
-<<<<<<< HEAD
-    mailService.toggleIsRead(mailId)
-      .then(mails => this.setState(prevState => ({
-        mails: {
-          ...prevState,
-          mails
-        }
-      })))
-=======
     mailService.toggleIsRead(mailId).then((mails) => this.setState({ mails }));
->>>>>>> 660601980399aec7d25098dd418330154065fde7
   };
 
   onSetFilter = (filterBy) => {
@@ -73,16 +63,8 @@ export class MailApp extends React.Component {
         <MailFilter onSetFilter={this.onSetFilter} />
         <MailList mails={mails} onReadMail={this.onReadMail} />
 
-<<<<<<< HEAD
         <Route exact component={() => <MailCompose onComposeMail={this.onComposeMail} />} exact path={'/mail/compose-mail'} />
         <Link className='compose-btn' to='/mail/compose-mail'>
-=======
-        <Route
-          component={() => <MailCompose onComposeMail={this.onComposeMail} />}
-          path={"/mail/compose-mail"}
-        />
-        <Link className="compose-btn" to="/mail/compose-mail">
->>>>>>> 660601980399aec7d25098dd418330154065fde7
           +
         </Link>
       </section>

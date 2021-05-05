@@ -17,11 +17,7 @@ export function App() {
       </header>
       <main>
         <Switch>
-<<<<<<< HEAD
           <Route component={MailDetails} path='/mail/read/:mailId' />
-=======
-          <Route  component={MailDetails} path='/mail/:mailId' />
->>>>>>> 660601980399aec7d25098dd418330154065fde7
           <Route component={NoteApp} path='/note' />
           <Route component={MailApp} path='/mail' />
           <Route component={BookApp} path='/book' />
