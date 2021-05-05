@@ -17,11 +17,13 @@ class _NoteModal extends React.Component {
   closeModal = () => {
     this.props.history.push(`/note`);
     this.handleStateChange();
+    this.props.editColor()
   };
   onOutSideClick = (ev) => {
     if (ev.target.classList.contains("modal-container")) {
       this.props.history.push(`/note`);
       this.handleStateChange();
+      this.props.editColor()
     }
   };
   handleStateChange = () => {

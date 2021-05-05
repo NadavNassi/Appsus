@@ -23,6 +23,8 @@
  
 } */
 .note{
+  font-family: inco ,Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2em;
    display:inline-block;
    margin-bottom: .4rem;
 }

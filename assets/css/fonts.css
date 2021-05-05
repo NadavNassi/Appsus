@@ -2,3 +2,8 @@
     font-family: pacifico;
     src: url('../fonts/Pacifico/Pacifico-Regular.ttf');
 }
+
+@font-face {
+    font-family: inco;
+    src: url('../fonts/Incoo/Inconsolata-Regular.ttf');
+}

@@ -6,6 +6,9 @@
     cursor: pointer;
     background-color:inherit;
 }
+.note-btn:hover{
+    color:#2d3436;
+}
 
 
 .color-line{
