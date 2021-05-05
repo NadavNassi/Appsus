@@ -7,7 +7,7 @@ export class NotePreview extends React.Component {
    
   }
   changeColorProfile = (color) => {
-
+    this.setState({ colorProfile: color });
   };
   render() {
     const { note, onDeleteNote, onEditNote, onPinnedNote } = this.props;
