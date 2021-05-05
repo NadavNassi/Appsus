@@ -1,7 +1,7 @@
 const { Link } = ReactRouterDOM;
 
 export function MailPreview({ mail, onReadMail }) {
-  const { subject, body, sentAt, isRead } = mail;
+  const { subject, body, sentAt, isRead, from } = mail;
   const getHour = () => {
     return sentAt.getHours();
   };
@@ -18,19 +18,18 @@ export function MailPreview({ mail, onReadMail }) {
   };
   return (
     <React.Fragment>
-      <Link to={`/mail/read/${mail.id}`} className='decoration-none'>
-        <section
-          className={`mail-preview grid grid-gap center ${!isRead && 'unread'}`}
-          onClick={() => onReadMail(mail.id)}
-        >
-          <div className='from'>{mail.from}</div>
-          <div className='subject'>{subject}</div>
-          <div className='body'>{getBody()}</div>
-          <div className='sent-at'>
-            {getHour()}:{getMinutes()}
-          </div>
-        </section>
-      </Link>
+      <section
+        className={`mail-preview grid grid-gap center ${!isRead && 'unread'}`}
+        onClick={() => onReadMail(mail.id)}
+      >
+        <Link to={`/mail/read/${mail.id}`} className='decoration-none from'>{from}</Link>
+        <Link to={`/mail/read/${mail.id}`} className='decoration-none subject'>{subject}</Link>
+        <Link to={`/mail/read/${mail.id}`} className='decoration-none body'>{getBody()}</Link>
+        <Link to={`/mail/read/${mail.id}`} className='decoration-none sent-at'>
+          {getHour()}:{getMinutes()}
+        </Link>
+        <button className='btn btn-remove'><i className="fas fa-trash-alt"></i></button>
+      </section>
     </React.Fragment>
   );
 }

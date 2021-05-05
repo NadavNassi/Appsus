@@ -12,21 +12,21 @@ export class MailDetails extends React.Component {
     const { mailId } = this.props.match.params;
     mailService.getMailById(mailId).then((mail) => this.setState({ mail }));
   };
-  onDeleteMail = () => {
+  onRemoveMail = () => {
     const { mailId } = this.props.match.params;
-    mailService.deleteMail(mailId).then(() => {
+    mailService.remove(mailId).then(() => {
       this.props.history.push("/mail");
     });
   };
   render() {
-    if (!this.state.mail) return <div>loading...</div>;
+    if (!this.state.mail) return <Loader />
     const { from, subject, body, id } = this.state.mail;
     return (
       <section className='mail-details flex'>
         <div className='edit-mail flex flex-direction-column'>
           <button
             className='btn delete-btn right-self'
-            onClick={() => this.onDeleteMail()}
+            onClick={() => this.onRemoveMail()}
           >
             Delete mail
           </button>

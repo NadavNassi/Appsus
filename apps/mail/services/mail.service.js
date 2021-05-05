@@ -36,7 +36,7 @@ const gMails = [
 export const mailService = {
   query,
   getMailById,
-  deleteMail,
+  remove: deleteMail,
   toggleIsRead,
   sendMail
 };
