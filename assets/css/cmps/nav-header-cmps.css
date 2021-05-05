@@ -8,7 +8,8 @@ nav {
   display: flex;
   color: #fff;
   justify-content: space-between;
-  border-bottom: 2px solid blueviolet;
+  background-color: #2d3436;
+  box-shadow: 0px 0px 10px black;;
 }
 
 .nav-logo-title {
@@ -24,6 +25,7 @@ nav {
 .nav-toggle{
   border: none;
   background-color:inherit;
+  color: #ffeaa7;
   font-size: 3.4rem;
 }
 .nav-toggle-list{
@@ -59,6 +61,9 @@ nav {
   font-weight: 400;
   border-radius: 0.3rem;
   color:#dcdde1;
+}
+.anchor-header-list li a.active i{
+  color: #fbc531;
 }
 
 .nav-toggle-container{

@@ -10,7 +10,7 @@ import {NoteModal} from './NoteModal.jsx';
     componentDidMount() {
         this.setState({isPinned:this.props.note.isPinned})
     }
-    
+
     changeColorLine = ()=>{
         this.setState({ColorLineContainer: !this.state.ColorLineContainer})
     }
@@ -23,18 +23,21 @@ import {NoteModal} from './NoteModal.jsx';
         return(
             <section>
                 <div className="edit-line-container">
-                    <button className={`note-btn `} onClick={()=>{
+                    <button className={`note-btn `} onClick={(ev)=>{
+                         ev.target.classList.toggle('note-toggle-btn'); 
                         onPinnedNote(id)
                     }    
-                    }><i className={`fas fa-thumbtack ${(this.state.isPinned)? 'red':null}`} onClick={()=>{this.pinnedColor()}}></i></button>
-                    <button className={`note-btn  `} onClick={()=>{
-                       
+                    }><i className={`fas fa-thumbtack`}></i></button>
+                    <button className={`note-btn`} onClick={(ev)=>{
+                        ev.target.classList.toggle('note-toggle-btn');                        
                            this.changeColorLine();
                     }}><i className="fas fa-palette"></i></button>
                     <Route component={()=><NoteModal onEditNote={onEditNote}/>} path="/note/edit/:id" />
                     <Link className="note-btn" to={`/note/edit/${id}`} ><i className="fas fa-edit"></i></Link>
-                    <button onClick={() =>{
+                    <button onClick={(ev) =>{
+                         ev.target.classList.toggle('note-toggle-btn'); 
                         onDeleteNote(id)
+                        
                     }} className="note-btn"><i className="fas fa-trash-alt"></i></button>
                 </div>
                 {(this.state.ColorLineContainer) && <ColorLine changeColorProfile={changeColorProfile}/>}

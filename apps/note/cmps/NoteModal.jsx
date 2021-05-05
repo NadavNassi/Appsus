@@ -52,12 +52,18 @@ class _NoteModal extends React.Component {
 
   setNoteState = (id) =>{
     let str = '';
+    let className = ''
     if(id){
       str = 'Edit Note'
+      className = 'transparent'
     }else{
       str = 'Add Note'
     }
-    return str;
+    const noteState = {
+      str,
+      className 
+    }
+    return noteState;
   }
   inputState = (name) =>{
    
@@ -96,12 +102,12 @@ class _NoteModal extends React.Component {
   render() {
     const {id} = this.props.match.params
     return (
-      <div onClick={this.onOutSideClick} className="modal-container ">
+      <div onClick={this.onOutSideClick} className={`modal-container ${this.setNoteState(id).className} ` }> 
         <div className="modal note-modal">
           <span onClick={this.closeModal} className="close-modal">
             x
           </span>
-          <h1>{this.setNoteState(id)}</h1>
+          <h1>{this.setNoteState(id).str}</h1>
           <div className="note-create-container">
           <input
               type="text"

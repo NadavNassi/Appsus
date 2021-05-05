@@ -2,6 +2,7 @@
 .note-btn{
     border:none;
     font-size:1.2rem;
+    color:#b2bec3;
     cursor: pointer;
     background-color:inherit;
 }
@@ -25,4 +26,7 @@
     height: 100%;
     padding: .3rem;
     font-size:1.4rem;
+}
+.note-toggle-btn{
+    color: #2d3436;
 }
