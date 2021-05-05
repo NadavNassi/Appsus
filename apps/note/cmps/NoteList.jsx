@@ -1,19 +1,33 @@
-
-import {NotePreview} from './NotePreview.jsx'
+import { NotePreview } from "./NotePreview.jsx";
 export class NoteList extends React.Component {
-    state = {}
- 
-    componentDidMount() {
-        console.log(this.props.container)
-    }
-    render(){
-        const {notes,onDeleteNote,onEditNote,onPinnedNote} = this.props
-        return(
-            <section className="notes-container">
-                {notes.map((note) =>{
-            return <NotePreview key={note.id} note={note} onDeleteNote={onDeleteNote} onPinnedNote={onPinnedNote}  onEditNote={onEditNote}/>
-                })}
-            </section>
-        )
-    }
+  state = {};
+
+  render() {
+    const {
+      notes,
+      onDeleteNote,
+      onEditNote,
+      onPinnedNote,
+      setMap,
+    } = this.props;
+    return (
+      <section className="notes-container">
+          {(!notes.length) && <div className="inline"></div>}
+        <ul className="note-list clean-list">
+          {notes.map((note, idx) => {           
+           return  <li className="note" key={idx}>
+                <NotePreview
+                  key={note.id}
+                  note={note}
+                  setMap={setMap}
+                  onDeleteNote={onDeleteNote}
+                  onPinnedNote={onPinnedNote}
+                  onEditNote={onEditNote}
+                />
+              </li>
+          })}
+        </ul>
+      </section>
+    );
+  }
 }

@@ -4,10 +4,18 @@ import {ColorLine} from './ColorLine.jsx';
 import {NoteModal} from './NoteModal.jsx'; 
  class _EditLine extends React.Component {
     state = {
-        ColorLineContainer: null
+        ColorLineContainer: null,
+        isPinned: false
     }
+    componentDidMount() {
+        this.setState({isPinned:this.props.note.isPinned})
+    }
+    
     changeColorLine = ()=>{
         this.setState({ColorLineContainer: !this.state.ColorLineContainer})
+    }
+    pinnedColor = ()=>{
+        this.setState({isPinned:!this.props.note.isPinned})
     }
     render(){
         const {onPinnedNote,onDeleteNote,onEditNote,changeColorProfile,id} = this.props;
@@ -18,8 +26,9 @@ import {NoteModal} from './NoteModal.jsx';
                     <button className={`note-btn `} onClick={()=>{
                         onPinnedNote(id)
                     }    
-                    }><i className="fas fa-thumbtack"></i></button>
-                    <button className="note-btn" onClick={()=>{
+                    }><i className={`fas fa-thumbtack ${(this.state.isPinned)? 'red':null}`} onClick={()=>{this.pinnedColor()}}></i></button>
+                    <button className={`note-btn  `} onClick={()=>{
+                       
                            this.changeColorLine();
                     }}><i className="fas fa-palette"></i></button>
                     <Route component={()=><NoteModal onEditNote={onEditNote}/>} path="/note/edit/:id" />

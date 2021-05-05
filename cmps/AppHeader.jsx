@@ -1,10 +1,16 @@
 
 // import { eventBusService } from '../services/event-bus-service.js'
-
-const {Link, NavLink, withRouter } = ReactRouterDOM
+import {NavLinkToggle} from './NavLinkToggle.jsx'
+const {Link, withRouter } = ReactRouterDOM
 
  class _NavHeader extends React.Component {
-  state = {};
+  state = {
+    isShown: false
+  };
+
+  toggleIsShown = ()=>{
+    this.setState({isShown: !this.state.isShown});
+  }
   render() {
     return (
       <nav>
@@ -14,26 +20,15 @@ const {Link, NavLink, withRouter } = ReactRouterDOM
               <h2 className="nav-logo-title">AppSus</h2>
               </Link>
           </div>
-          <div>
-            <ul className="anchor-header-list clean-list">
-              <li>
-                <NavLink exact to="/" activeClassName="active-nav">
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/note">Note</NavLink>
-              </li>
-              <li>
-              <NavLink to="/mail">Mail</NavLink>
-               
-              </li>
-              <li>
-              <NavLink to="/book">Book</NavLink>
-               
-              </li>
-            </ul>
-          </div>
+         
+           
+           <div className="nav-toggle-container">
+           <button className="nav-toggle" onClick={()=>{ this.toggleIsShown()  }}><i className="fas fa-th"></i></button>
+           {this.state.isShown && <div className="nav-toggle-list">
+           <NavLinkToggle/>
+           </div>}
+           
+            </div>
         </div>
       </nav>
     );

@@ -1,12 +1,14 @@
 const { withRouter } = ReactRouterDOM;
-import { utilService } from "../../../services/util-service.js";
-import { noteService } from "../services/note.service.js";
+import {NoteControlType} from './NoteControlType.jsx'
 
 class _NoteModal extends React.Component {
   state = {
     note: {
       type: "NoteText",
       txt: null,
+      img: null,
+      video:null,
+      list:null,
       createdAt: Date.now(),
     },
      noteState: null
@@ -57,24 +59,60 @@ class _NoteModal extends React.Component {
     }
     return str;
   }
+  inputState = (name) =>{
+   
+ switch(this.state.note.type){
+      case 'NoteText':
+        if(name) return 'txt';
+         return 'Enter some text'
+        case 'NoteImg':
+          if(name) return 'img';
+          return 'Enter Image URL'
+        case 'NoteVideo':
+          if(name) return 'video';
+          return 'Enter Video URL'
+          case 'NoteAudio':
+          if(name) return 'audio';
+          return 'Enter Audio URL'
+          case 'NoteTodos':
+            if(name) return 'list'
+          return 'Enter comma separated list'
+          case 'NoteMap':
+            if(name) return 'map'
+          return 'Enter city name'
+    }
+  }
 
+  onSetInputType = (type)=>{
+    this.setState((prevState) => ({
+      note: {
+        ...prevState.note,
+        type,
+      },
+    }));
+
+  }
 
   render() {
     const {id} = this.props.match.params
     return (
-      <div onClick={this.onOutSideClick} className="modal-container">
-        <div className="modal ">
+      <div onClick={this.onOutSideClick} className="modal-container ">
+        <div className="modal note-modal">
           <span onClick={this.closeModal} className="close-modal">
             x
           </span>
           <h1>{this.setNoteState(id)}</h1>
-            <input
+          <div className="note-create-container">
+          <input
               type="text"
-              id="name"
-              name="txt"
+              name={this.inputState('name')} //just some way to make the inputstate function be dynamic
               onChange={this.handleChange}
               className="note-input"
+              placeholder = {this.inputState()}
             />
+              <NoteControlType onSetInputType={this.onSetInputType}/>
+          </div>
+         
         </div>
       </div>
     );

@@ -6,6 +6,7 @@ nav {
 .nav-header {
   display: flex;
   color: #fff;
+  justify-content: space-between;
   border-bottom: 2px solid blueviolet;
 }
 .nav-logo-title {
@@ -14,22 +15,54 @@ nav {
   margin-inline-end: 2rem;
   padding: 0.3rem;
 }
+
+
+
+/* NAV TOGGLE */
+.nav-toggle{
+  border: none;
+  background-color:inherit;
+  font-size: 3.4rem;
+}
+.nav-toggle-list{
+  background-color: #353b48;
+
+  width: 150px;
+  height: fit-content;
+    padding: .4rem;
+    z-index: 2;
+    position: absolute;
+    top: 80px;
+    right: 3px;
+    border-radius: .3rem;
+   
+    box-shadow: 0px 0px 10px 0px black;
+}
+
 .anchor-header-list {
-  height: 100%;
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
 }
 .anchor-header-list > * {
-  margin-inline-end: 1rem;
+  height: 45px;
+  width: 50px; 
+  align-items: center;
 }
 .anchor-header-list a {
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 400;
-  padding: 0.3rem;
-
   border-radius: 0.3rem;
+  color:#dcdde1;
 }
+
+.nav-toggle-container{
+  display: flex;
+}
+
+
 .go-back {
   font-size: 1.3rem;
   color: #fff;
@@ -41,8 +74,4 @@ nav {
 .book-data .btn {
   margin: 0.12rem;
 }
-.active,
-.active-nav {
-  background-color: rgb(255, 174, 0);
-  color: rgb(0, 0, 0);
-}
+

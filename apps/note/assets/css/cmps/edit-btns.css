@@ -18,3 +18,11 @@
     margin-inline-end: .2rem;
     border: 1px solid black;
 }
+
+.btn-input-type{
+    border: none;
+    background-color:inherit;
+    height: 100%;
+    padding: .3rem;
+    font-size:1.4rem;
+}

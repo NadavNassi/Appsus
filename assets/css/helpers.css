@@ -43,6 +43,8 @@
   align-items: flex-end;
 }
 
+
+
 /* GRID */
 
 .grid {
@@ -69,6 +71,14 @@
 .decoration-none {
   text-decoration: none;
 }
+
+.line-through {
+  text-decoration: line-through;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.inline {display: inline;}
 
 /* MARGIN */
 .mb-1 {
@@ -117,4 +127,11 @@
 }
 .white {
   color: white;
+}
+
+
+/* HEADER HALPERS */
+.active-nav{
+  background-color:inherit;
+  color: #fbc531;
 }
