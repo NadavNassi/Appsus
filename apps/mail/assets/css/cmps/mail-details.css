@@ -1,3 +1,7 @@
 .mail p {
   border-bottom: 1px solid black;
 }
+
+.mail {
+  width: 100%;
+}
