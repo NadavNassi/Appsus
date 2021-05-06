@@ -5,15 +5,16 @@
 @import '../css/cmps/mail-compose.css';
 @import './cmps/side-nav.css';
 @import './cmps/label-add.css';
-
-.mail-app{
-  font-family: poppins ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+@import './mobile.css';
+.mail-app {
+  font-family: poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.compose-btn {
+
+/* .compose-btn {
   position: fixed;
   bottom: 50px;
   right: 50px;
-}
+} */
 
 .fa-plus {
   background-color: ivory;

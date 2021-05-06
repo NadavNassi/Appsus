@@ -1,0 +1,38 @@
+.mail-app-grid {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    align-content: center;
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.side-nav>* {
+    padding: 10px;
+}
+
+.side-nav-list {
+    flex-direction: row;
+}
+
+thead {
+    display: none;
+}
+
+td {
+    display: flex;
+    border-bottom: 1px solid #000;
+}
+
+.from-td {
+    font-weight: bolder;
+}
+
+.actions-btns {
+    justify-content: space-evenly;
+}

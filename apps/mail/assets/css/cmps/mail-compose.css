@@ -36,7 +36,10 @@
     grid-template-columns: 20% 80%;
     align-items: center;
     justify-items: center;
-    box-shadow: 0 0 15px 0;
+    box-shadow: 0 0 15px black;
+    background-color: #2d3436;
+    color: white;
+    border-radius: 5px;
 }
 
 .compose-subject {
