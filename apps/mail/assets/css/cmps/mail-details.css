@@ -5,3 +5,15 @@
 .mail {
   width: 100%;
 }
+
+.mail-details .edit-mail {
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.mail-details .labels {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  padding: 20px;
+}

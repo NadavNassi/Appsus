@@ -6,14 +6,23 @@
   color: black;
 }
 
-.mail-list .mail-preview:nth-child(odd) {
-  background-color: lightcyan;
-}
-
 .mail-list .unread {
   font-weight: bolder;
 }
 
 .preview-container {
   grid-template-columns: repeat(2, auto);
+}
+
+td a {
+  color: black;
+}
+
+.actions-btns {
+  padding: 5px;
+  flex-wrap: wrap;
+}
+
+.fas.fa-star {
+  color: #fdcb6e;
 }

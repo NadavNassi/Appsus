@@ -3,17 +3,15 @@ const { Link } = ReactRouterDOM;
 export function BookPreview({ book }) {
 
   return (
-    <Link className="clean-text" to={`/book/${book.id}`}>
-      <article className="container clean-text">
-        <div className="card">
-          <div className="card-img">
-            <img src={book.thumbnail} alt="" />
-          </div>
-          <div className="card-details">
-            <p>{book.title}</p>
-          </div>
+    <Link className="decoration-none" to={`/book/read/${book.id}`}>
+      <div className="card">
+        <div className="card-img">
+          <img src={book.thumbnail} alt="" />
         </div>
-      </article>
+        <div className="card-details">
+          <p>{book.title}</p>
+        </div>
+      </div>
     </Link>
   );
 }

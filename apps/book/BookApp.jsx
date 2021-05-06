@@ -1,6 +1,8 @@
-import { booksService } from './services/book.service.js';
-import { BooksList } from './cmps/BooksList.jsx';
-import { BookFilter } from '';
+const { Link } = ReactRouterDOM
+
+import { bookService } from './services/book.service.js';
+import { BookList } from './cmps/BookList.jsx';
+import { BookFilter } from './cmps/BookFilter.jsx';
 import { Loader } from '../../cmps/Loader.jsx';
 
 export class BookApp extends React.Component {
@@ -13,7 +15,7 @@ export class BookApp extends React.Component {
     }
 
     loadBooks() {
-        booksService.query(this.state.filterBy).then((books) => {
+        bookService.query(this.state.filterBy).then((books) => {
             this.setState({ books });
         });
     }
@@ -26,11 +28,15 @@ export class BookApp extends React.Component {
         const { books } = this.state;
         if (!books) return <Loader />
         return (
-            <section className={`book-app`}>
+            <section className='book-app'>
 
                 <BookFilter onSetFilter={this.onSetFilter} />
 
-                <BooksList books={books} />
+                <BookList books={books} />
+                <Link className='compose-btn' to='/book/add-book'>
+                    <i className="fas fa-plus"></i>
+                </Link>
+
             </section>
         );
     }

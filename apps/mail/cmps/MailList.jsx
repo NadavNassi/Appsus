@@ -2,7 +2,7 @@ const { Link } = ReactRouterDOM;
 
 import { MailPreview } from './MailPreview.jsx';
 
-export function MailList({ mails, onReadMail, onRemoveMail }) {
+export function MailList({ mails, onReadMail, onRemoveMail, onStarMail }) {
   return (
     <section className='mail-list'>
       <table>
@@ -18,7 +18,7 @@ export function MailList({ mails, onReadMail, onRemoveMail }) {
         <tbody>
           {mails.map((mail) => {
             return (
-              <MailPreview key={mail.id} mail={mail} onReadMail={onReadMail} onRemoveMail={onRemoveMail} />
+              <MailPreview key={mail.id} mail={mail} onReadMail={onReadMail} onRemoveMail={onRemoveMail} onStarMail={onStarMail} />
             );
           })}
         </tbody>

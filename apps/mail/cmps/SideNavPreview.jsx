@@ -8,7 +8,7 @@ export class SideNavPreview extends React.Component {
     componentDidMount() {
         this.removeEvent = eventBusService.on(
             'mail-count',
-            ({ unreadMailCount }) => {
+            (unreadMailCount) => {
                 this.setState({ unreadMailCount });
             }
         );
@@ -20,7 +20,7 @@ export class SideNavPreview extends React.Component {
         const { label, onLabelSelect } = this.props
         const { unreadMailCount } = this.state
         return (
-            <li onClick={() => onLabelSelect(label)} className={label}>{label} {label === 'Inbox' && `(${unreadMailCount})`}</li>
+            <li onClick={() => onLabelSelect(label)} className={label}>{label} {label === 'Inbox' && unreadMailCount > 0 && `(${unreadMailCount})`}</li>
         )
     }
 }

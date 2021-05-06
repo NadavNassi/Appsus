@@ -1,10 +1,11 @@
 const { Link, Route } = ReactRouterDOM;
 
-import { ReviewList } from "../cmps/ReviewList.jsx";
-import { Loader } from "../cmps/Loader.jsx";
-import { LongText } from "../cmps/LongText.jsx";
+import { ReviewList } from '../cmps/ReviewList.jsx';
+import { Loader } from "../../../cmps/Loader.jsx";
+// import { LongText } from '../cmps/LongText.jsx';
 import { ReviewAdd } from "../cmps/ReviewAdd.jsx";
-import { booksService } from "../services/books.service.js";
+import { bookService } from "../services/book.service.js";
+// import { LongTxt } from '../cmps/LongTxt.jsx'
 
 export class BookDetails extends React.Component {
   state = {
@@ -16,15 +17,15 @@ export class BookDetails extends React.Component {
     this.loadBook();
   }
 
-  componentDidUpdate(prevProps, prevState){
-    if (prevProps.match.params.bookId !== this.props.match.params.bookId){
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.bookId !== this.props.match.params.bookId) {
       this.loadBook()
     }
   }
 
   loadBook = () => {
     const { bookId } = this.props.match.params;
-    booksService.getBookById(bookId).then((book) => {
+    bookService.getBookById(bookId).then((book) => {
       if (!book) return this.props.history.push("/book");
       this.setState({ book });
     });
@@ -80,16 +81,25 @@ export class BookDetails extends React.Component {
   };
 
   onReviewAdded = (book) => {
-    this.setState({book})
+    this.setState({ book })
   }
 
-  
+
 
   onRemoveReview = (review) => {
     console.log('review.id', review);
-    booksService.removeReview(this.state.book, review)
+    bookService.removeReview(this.state.book, review)
       .then(this.loadBook())
   };
+
+  getTxt = () => {
+    let { description } = this.state.book
+    if (!description) return
+    if (description.length > 100) {
+      description = this.state.isReadMore ? description : description.substring(0, 100) + "...";
+    }
+    return description
+  }
 
   render() {
     const { book } = this.state;
@@ -108,13 +118,10 @@ export class BookDetails extends React.Component {
           </h3>
           <hr />
           <div className="book-desc">
-          <label htmlFor='bookDesc'>About this book:</label>
-          <LongText
-            txt={book.description}
-            isReadMore={this.state.isReadMore}
-            toggleReadMore={this.toggleReadMore}
-          />
-          <hr />
+            <label htmlFor='bookDesc'>About this book:</label>
+            <p>{this.getTxt()}</p>
+            {/* <LongTxt txt={book.description} /> */}
+            <hr />
           </div>
           <div className='page-count'>{this.getPageCount()}</div>
           <div className='boo-age'>{this.getHowOld()}</div>
@@ -129,31 +136,31 @@ export class BookDetails extends React.Component {
           </p>
           <button onClick={this.onCloseModal}>Close</button>
         </div>
-        <Route component={ReviewAdd} path='/book/:bookId/add-review' />
-          <div>
-        <div className="review-section">
-          <Link to={`/book/${book.id}/add-review`}>Add review</Link>
-        </div>
-        <div className="review-display">
-        <h2>Reviews</h2>
-          {!reviews ? (
-            <h4>No reviews yet</h4>
-          ) : (
-            <div className='show-reviews'>
-              <div>Name</div>
-              <div>Rate</div>
-              <div>Date</div>
-              <div>Review</div>
-              <div>Delete review</div>
-            <ReviewList reviews={reviews} removeReview={this.onRemoveReview} /> 
-        </div>
-          )}
-        </div>
+        <Route component={ReviewAdd} path='/book/read/:bookId/add-review' />
+        <div>
+          <div className="review-section">
+            <Link to={`/book/read/${book.id}/add-review`}>Add review</Link>
           </div>
-          <div className="nav-btns">
-            <Link to={`/book/${booksService.getPrevBookId(book.id)}`}>Previews</Link>
-            <Link to={`/book/${booksService.getNextBookId(book.id)}`}>Next</Link>
+          <div className="review-display">
+            <h2>Reviews</h2>
+            {!reviews ? (
+              <h4>No reviews yet</h4>
+            ) : (
+              <div className='show-reviews'>
+                <div>Name</div>
+                <div>Rate</div>
+                <div>Date</div>
+                <div>Review</div>
+                <div>Delete review</div>
+                <ReviewList reviews={reviews} removeReview={this.onRemoveReview} />
+              </div>
+            )}
           </div>
+        </div>
+        <div className="nav-btns">
+          <Link to={`/book/read/${bookService.getPrevBookId(book.id)}`}>Previews</Link>
+          <Link to={`/book/read/${bookService.getNextBookId(book.id)}`}>Next</Link>
+        </div>
       </article>
     );
   }
