@@ -3,8 +3,8 @@
     flex-direction: column;
     align-items: center;
     background-color: #b2bec3;
-    height:fit-content;
-    margin:.4rem;
+    height: fit-content;
+    margin: .4rem;
     padding: .4rem;
     min-width: 120px;
     padding-bottom: 2rem;
@@ -22,16 +22,18 @@
 .side-nav-list>* {
     text-align: center;
     color: #2d3436;
-    font-weight:600;
+    font-weight: 600;
     padding: .4rem;
     margin-bottom: 15px;
     justify-items: flex-start;
     font-size: 1.2rem;
+    cursor: pointer;
 }
+
 .side-nav-list>*:hover {
     transition: .5s;
-    background: #2d3436 ;
-    border-radius:.2rem;
+    background: #2d3436;
+    border-radius: .2rem;
     color: #fff;
 }
 
@@ -42,14 +44,15 @@
     color: #2d3436;
 }
 
-.add-label-btn{
-    padding:.2rem;
-    border-radius:.2rem;
-    font-size:1.3rem;
+.add-label-btn {
+    padding: .2rem;
+    border-radius: .2rem;
+    font-size: 1.3rem;
     color: #2d3436;
 }
-.add-label-btn:hover{
+
+.add-label-btn:hover {
     transition: .5s;
-    background: #2d3436 ;
+    background: #2d3436;
     color: #fff;
 }
