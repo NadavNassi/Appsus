@@ -4,6 +4,9 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: blanchedalmond;
+    background-color: #2d3436;
     z-index: 20;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
 }

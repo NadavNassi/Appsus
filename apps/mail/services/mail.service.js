@@ -67,6 +67,286 @@ function _createDB() {
         sentAt: '2/5/21',
         labels: ['All', 'Inbox'],
       },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '24/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Liel',
+        subject: 'Checking on your progress',
+        body:
+          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
+        isRead: false,
+        sentAt: '25/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Ilai',
+        subject: 'bit by bit',
+        body:
+          'whatsuuuppppp?!?!?!???!?!?!?!',
+        isRead: true,
+        sentAt: '1/5/21',
+        labels: ['All', 'Inbox', 'Star'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '2/5/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '24/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Liel',
+        subject: 'Checking on your progress',
+        body:
+          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
+        isRead: false,
+        sentAt: '25/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Ilai',
+        subject: 'bit by bit',
+        body:
+          'whatsuuuppppp?!?!?!???!?!?!?!',
+        isRead: true,
+        sentAt: '1/5/21',
+        labels: ['All', 'Inbox', 'Star'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '2/5/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '24/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Liel',
+        subject: 'Checking on your progress',
+        body:
+          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
+        isRead: false,
+        sentAt: '25/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Ilai',
+        subject: 'bit by bit',
+        body:
+          'whatsuuuppppp?!?!?!???!?!?!?!',
+        isRead: true,
+        sentAt: '1/5/21',
+        labels: ['All', 'Inbox', 'Star'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '2/5/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '24/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Liel',
+        subject: 'Checking on your progress',
+        body:
+          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
+        isRead: false,
+        sentAt: '25/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Ilai',
+        subject: 'bit by bit',
+        body:
+          'whatsuuuppppp?!?!?!???!?!?!?!',
+        isRead: true,
+        sentAt: '1/5/21',
+        labels: ['All', 'Inbox', 'Star'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '2/5/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '24/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Liel',
+        subject: 'Checking on your progress',
+        body:
+          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
+        isRead: false,
+        sentAt: '25/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Ilai',
+        subject: 'bit by bit',
+        body:
+          'whatsuuuppppp?!?!?!???!?!?!?!',
+        isRead: true,
+        sentAt: '1/5/21',
+        labels: ['All', 'Inbox', 'Star'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '2/5/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '24/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Liel',
+        subject: 'Checking on your progress',
+        body:
+          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
+        isRead: false,
+        sentAt: '25/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Ilai',
+        subject: 'bit by bit',
+        body:
+          'whatsuuuppppp?!?!?!???!?!?!?!',
+        isRead: true,
+        sentAt: '1/5/21',
+        labels: ['All', 'Inbox', 'Star'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '2/5/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '24/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Liel',
+        subject: 'Checking on your progress',
+        body:
+          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
+        isRead: false,
+        sentAt: '25/4/21',
+        labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Ilai',
+        subject: 'bit by bit',
+        body:
+          'whatsuuuppppp?!?!?!???!?!?!?!',
+        isRead: true,
+        sentAt: '1/5/21',
+        labels: ['All', 'Inbox', 'Star'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '2/5/21',
+        labels: ['All', 'Inbox'],
+      },
     ],
     labels: [
       'All',

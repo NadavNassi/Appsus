@@ -21,5 +21,9 @@
 }
 
 td {
+  overflow: scroll;
+}
+
+td:not(:last-child) {
   border-right: 1px solid black;
 }

@@ -16,11 +16,18 @@ export class SideNavPreview extends React.Component {
     componentWillUnmount() {
         this.removeEvent()
     }
+
+    onLabelClick = (label) => {
+        this.props.onLabelSelect(label)
+        this.props.setActiveLabel(label)
+    }
+
+
     render() {
-        const { label, onLabelSelect } = this.props
+        const { label, onLabelSelect, activeLabel, setActiveLabel } = this.props
         const { unreadMailCount } = this.state
         return (
-            <li onClick={() => onLabelSelect(label)} className={label}>{label} {label === 'Inbox' && unreadMailCount > 0 && `(${unreadMailCount})`}</li>
+            <li onClick={() => this.onLabelClick(label)} className={`${label} ${activeLabel === label && 'active'}`}>{label} {label === 'Inbox' && unreadMailCount > 0 && `(${unreadMailCount})`}</li>
         )
     }
 }
