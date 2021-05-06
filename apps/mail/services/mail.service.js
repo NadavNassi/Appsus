@@ -34,7 +34,7 @@ function _createDB() {
           'various people burn I had to The sky it a different story more or less It',
         isRead: false,
         sentAt: Date.now(),
-        labels: ['all', 'inbox'],
+        labels: ['All', 'Inbox'],
       },
       {
         id: makeId(),
@@ -44,7 +44,7 @@ function _createDB() {
           'from various people I as generally It and . in such cases in such cases from various people a pleasure tuned a dead channel It a dead channel had burn to was The sky bit by bit tuned each time to . above was All I The sky the port a pleasure the color of television this happened . All a dead channel was more or less each time It as generally All was a pleasure The sky from various people bit by bit tuned . from various people to . and All this happened I in such cases to a dead channel the color of television the color of television a different story to . a different story and a dead channel . The sky burn a dead channel it to was The sky ',
         isRead: false,
         sentAt: Date.now(),
-        labels: ['all', 'inbox'],
+        labels: ['All', 'Inbox'],
       },
       {
         id: makeId(),
@@ -54,14 +54,14 @@ function _createDB() {
           'above I tuned in such cases as generally . I in such cases more or less happens tuned All as generally the story . tuned a dead channel each time was to . The sky a different story more or less in such cases each time . a pleasure a dead channel All and',
         isRead: true,
         sentAt: Date.now(),
-        labels: ['all', 'inbox', 'star'],
+        labels: ['All', 'Inbox', 'Star'],
       },
     ],
     labels: [
-      'all',
-      'sent',
-      'inbox',
-      'star'
+      'All',
+      'Sent',
+      'Inbox',
+      'Star'
     ]
   }
 }
@@ -120,7 +120,7 @@ function _createMail({ subject, body }) {
     body: body,
     isRead: false,
     sentAt: Date.now(),
-    labels: ['all', 'sent'],
+    labels: ['All', 'Sent'],
   }
   gUser.mails.push(newMail)
   _saveToStorage()

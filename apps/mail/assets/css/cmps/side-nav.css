@@ -1,5 +1,16 @@
 .side-nav {
-    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #b2bec3;
+    height:fit-content;
+    margin:.4rem;
+    padding: .4rem;
+    min-width: 120px;
+    padding-bottom: 2rem;
+    border-radius: 3.2rem;
+    box-shadow: 0 0 14px 0;
+    text-align: center;
 }
 
 .side-nav-list {
@@ -9,12 +20,36 @@
 }
 
 .side-nav-list>* {
-    margin-inline-start: 20%;
+    text-align: center;
+    color: #2d3436;
+    font-weight:600;
+    padding: .4rem;
     margin-bottom: 15px;
     justify-items: flex-start;
     font-size: 1.2rem;
 }
+.side-nav-list>*:hover {
+    transition: .5s;
+    background: #2d3436 ;
+    border-radius:.2rem;
+    color: #fff;
+}
 
 .labels-title {
     text-align: center;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #2d3436;
+}
+
+.add-label-btn{
+    padding:.2rem;
+    border-radius:.2rem;
+    font-size:1.3rem;
+    color: #2d3436;
+}
+.add-label-btn:hover{
+    transition: .5s;
+    background: #2d3436 ;
+    color: #fff;
 }

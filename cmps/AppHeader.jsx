@@ -15,7 +15,7 @@ const {Link, withRouter } = ReactRouterDOM
     return (
       <nav>
         <div className="nav-header">
-          <div className="nav-logo">
+          <div className="nav-logo animate__animated animate__bounce">
             <Link exact='true' to="/" className="decoration-none"> 
               <h2 className="nav-logo-title">AppSus</h2>
               </Link>
@@ -24,10 +24,9 @@ const {Link, withRouter } = ReactRouterDOM
            
            <div className="nav-toggle-container">
            <button className="nav-toggle" onClick={()=>{ this.toggleIsShown()  }}><i className="fas fa-th"></i></button>
-           {this.state.isShown && <div className="nav-toggle-list">
+           {this.state.isShown && <div className="nav-toggle-list animate__animated animate__fadeInRight">
            <NavLinkToggle/>
            </div>}
-           
             </div>
         </div>
       </nav>

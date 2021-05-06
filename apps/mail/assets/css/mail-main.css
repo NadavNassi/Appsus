@@ -5,6 +5,10 @@
 @import '../css/cmps/mail-compose.css';
 @import './cmps/side-nav.css';
 @import './cmps/label-add.css';
+
+.mail-app{
+  font-family: poppins ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .compose-btn {
   position: fixed;
   bottom: 50px;

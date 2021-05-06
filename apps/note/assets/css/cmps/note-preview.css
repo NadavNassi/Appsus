@@ -10,6 +10,10 @@
     box-shadow:0 0 5px black;
     
 }
+.note-container img{
+  width: 100%;
+  
+}
 
 
   .note-container >*{
@@ -23,7 +27,7 @@
 
   
   .list-todos{
-    margin-inline-start:8px;
+    margin-inline-start: 20px;
   }
   .audio-container{
     width: 100%;

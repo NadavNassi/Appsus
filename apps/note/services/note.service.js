@@ -52,6 +52,7 @@ function editNote(newNote, noteId) {
     return getNoteById(noteId)
         .then((note) => {
             note.info.txt = (newNote.txt)? newNote.txt : note.info.txt;
+            note.type = (newNote.type)? newNote.type : newNote.type;
             note.info.img = (newNote.img)? newNote.img : note.info.img;
             note.info.video = (newNote.video)? newNote.video : note.info.video;
             note.info.audio = (newNote.audio)? newNote.audio : note.info.audio;

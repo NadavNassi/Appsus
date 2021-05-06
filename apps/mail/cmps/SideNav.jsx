@@ -11,7 +11,7 @@ export function SideNav({ labels, onLabelSelect, onAddLabel, onCloseModal }) {
             <h4 className='labels-title'>Labels:</h4>
             <SideNavList labels={labels} onLabelSelect={onLabelSelect} />
             <Route component={() => <LabelAdd onAddLabel={onAddLabel} onCloseModal={onCloseModal} />} path='/mail/label/add-label' />
-            <Link to='/mail/label/add-label' className="add-label-btn">Add Label</Link>
+            <Link to='/mail/label/add-label' className="add-label-btn decoration-none">Add label</Link>
         </div>
     )
 }

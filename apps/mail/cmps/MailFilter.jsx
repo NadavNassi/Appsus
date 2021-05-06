@@ -57,6 +57,8 @@ export class MailFilter extends React.Component {
         onSubmit={this.onFilter}
       >
         <h4>Search for mails: </h4>
+        <div className='filter-search-container'>
+        
         <input
           type='text'
           value={txt}
@@ -73,10 +75,13 @@ export class MailFilter extends React.Component {
           <option value={true}>Read</option>
           <option value={false}>Unread</option>
         </select>
-        <button>Search</button>
+        <button className="filter-search-btn">Search</button>
+       
+        </div>
         <p>
-          You have {this.state.unreadMailCount} unread mails of
-          {this.state.mailCount} mails total
+          You have {this.state.unreadMailCount} unread mails 
+          of {this.state.mailCount} mails total
+         
         </p>
       </form>
     );

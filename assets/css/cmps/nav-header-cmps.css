@@ -13,9 +13,10 @@ nav {
 }
 
 .nav-logo-title {
-  color: blueviolet;
+  color: #a49cdc;
   font-family: pacifico;
-  margin-inline-end: 2rem;
+  margin-inline: 2rem;
+  font-size: 1.5rem;
   padding: 0.3rem;
 }
 
@@ -27,6 +28,7 @@ nav {
   background-color:inherit;
   color: #ffeaa7;
   font-size: 3.4rem;
+  margin-inline-end: .5rem;
 }
 .nav-toggle-list{
   background-color: #353b48;

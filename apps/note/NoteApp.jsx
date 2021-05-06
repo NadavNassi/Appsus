@@ -1,5 +1,4 @@
 const { Link, Route } = ReactRouterDOM;
-import { mapService } from "./services/note.map.service.js";
 import { noteService } from "./services/note.service.js";
 import { NoteList } from "./cmps/NoteList.jsx";
 import { NoteModal } from "./cmps/NoteModal.jsx";

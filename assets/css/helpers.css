@@ -115,6 +115,12 @@
   padding-bottom: 2rem;
 }
 
+/* TEXT DECORATION */
+h4{
+  font-size:1.4rem;
+  font-weight: normal;
+}
+
 /* COLORS */
 .red {
   color: red;

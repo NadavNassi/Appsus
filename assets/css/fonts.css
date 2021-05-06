@@ -7,3 +7,7 @@
     font-family: inco;
     src: url('../fonts/Incoo/Inconsolata-Regular.ttf');
 }
+@font-face {
+    font-family: poppins;
+    src: url('../fonts/Poppins/Poppins-Regular.ttf');
+}
