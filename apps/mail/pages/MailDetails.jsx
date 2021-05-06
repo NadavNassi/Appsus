@@ -24,18 +24,18 @@ class _MailDetails extends React.Component {
     })
   };
 
-  onRemoveLabels = (label) => {
-    const { mailId } = this.props.match.params;
-    mailService.removeLabel(mailId, label)
-      .then(mail => this.setState({ mail }))
-  }
-
   getLabels = () => {
     const labels = mailService.getAvailableLabels()
     const avialableLabels = labels.filter(label => {
       return !this.state.mail.labels.includes(label)
     })
     return avialableLabels
+  }
+
+  onRemoveLabels = (label) => {
+    const { mailId } = this.props.match.params;
+    mailService.removeLabel(mailId, label)
+      .then(mail => this.setState({ mail }))
   }
 
   onAddLabel = (label) => {

@@ -7,7 +7,7 @@ const STORAGE_KEY = 'booksDB'
 let gBooks;
 
 
-export const booksService = {
+export const bookService = {
     query,
     getBookById,
     saveReview,
@@ -32,12 +32,12 @@ function _saveBooks() {
 
 function query(filterBy) {
     if (filterBy) {
-        var { title, maxPrice, minPricce } = filterBy
-        title = title.toUpperCase()
+        var { title, maxPrice, minPrice } = filterBy
+        title = title
         maxPrice = maxPrice ? maxPrice : Infinity
-        minPricce = minPricce ? minPricce : 0
+        minPrice = minPrice ? minPrice : 0
         const filteredBooks = gBooks.filter(book => {
-            return book.title.toUpperCase().includes(title) && book.listPrice.amount >= minPrice && book.listPrice.amount <= maxPrice
+            return book.title.includes(title) && book.listPrice.amount >= minPrice && book.listPrice.amount <= maxPrice
         })
         return Promise.resolve(filteredBooks)
     }
@@ -86,3 +86,4 @@ function saveGoogleBook(book) {
 }
 
 
+window.gBooks = gBooks

@@ -1,9 +1,9 @@
 const { withRouter } = ReactRouterDOM
 
-import { utilService } from '../services/util.service.js'
+import { utilService } from '../../../services/util-service.js'
 import { ResultList } from "../cmps/ResultList.jsx";
 import { addBookService } from "../services/add.book.service.js";
-import { booksService } from '../services/books.service.js'
+import { bookService } from '../services/book.service.js'
 
 class _BookAdd extends React.Component {
   state = {
@@ -42,7 +42,7 @@ class _BookAdd extends React.Component {
   };
 
   onAddBook = (bookId) => {
-    const { saveGoogleBook } = booksService
+    const { saveGoogleBook } = bookService
     const currency = ['USD', 'EUR', 'ILS']
     const currencyCode = utilService.getRandomIntInclusive(0, 2)
     const { results } = this.state.search

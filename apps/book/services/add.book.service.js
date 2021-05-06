@@ -1,7 +1,6 @@
 'use strict'
-import {storageService} from './localStorage.service.js'
 
-export const addBookService ={
+export const addBookService = {
     // getResults
     query
 }
