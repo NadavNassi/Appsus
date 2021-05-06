@@ -5,9 +5,6 @@ import { Loader } from '../../../cmps/Loader.jsx'
 import { LabelAdd } from './LabelAdd.jsx'
 
 export class SideNav extends React.Component {
-<<<<<<< HEAD
-    
-=======
     state = {
         activeLabel: 'All'
     }
@@ -16,7 +13,6 @@ export class SideNav extends React.Component {
         this.setState({ activeLabel })
     }
 
->>>>>>> 759247d9838eb6aa6e651ebd2d02b74192cc744a
     render() {
         const { labels, onLabelSelect, onAddLabel, onCloseModal } = this.props
         const { activeLabel } = this.state
