@@ -13,7 +13,11 @@ class _MailDetails extends React.Component {
   }
   loadMail = () => {
     const { mailId } = this.props.match.params;
-    mailService.getMailById(mailId).then((mail) => this.setState({ mail }));
+    mailService.getMailById(mailId).then((mail) => {
+      mail.isRead = true
+      this.setState({ mail })
+
+    });
   };
 
   onRemoveMail = () => {
@@ -43,22 +47,17 @@ class _MailDetails extends React.Component {
       .then(mail => this.setState({ mail }))
   }
 
+  onCloseMail = () => {
+    this.props.history.push('/mail')
+  }
+
 
 
   render() {
-    console.log(this.state.mail);
     if (!this.state.mail) return <Loader />
     const { from, subject, body, labels } = this.state.mail;
     return (
-      <section className='mail-details flex'>
-        <div className='edit-mail flex flex-direction-column'>
-          <button
-            className='btn delete-btn right-self'
-            onClick={this.onRemoveMail}
-          >
-            Delete mail
-          </button>
-        </div>
+      <section className='mail-details'>
         <div className='mail'>
           <h3 className='from'>From: </h3>
           <p>{from}</p>
@@ -77,6 +76,15 @@ class _MailDetails extends React.Component {
               <LabelList labels={this.getLabels()} onClickLabels={this.onAddLabel} />
             </div>
           </div>
+        </div>
+        <div className='edit-mail flex'>
+          <button className='btn back-btn' onClick={this.onCloseMail}>Back to mail box</button>
+          <button
+            className='btn delete-btn right-self'
+            onClick={this.onRemoveMail}
+          >
+            Delete mail
+          </button>
         </div>
       </section>
     );

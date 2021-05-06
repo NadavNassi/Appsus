@@ -5,7 +5,7 @@ import { storageService } from '../../../services/storage/storage-service.js'
 const { makeLorem, makeId } = utilService;
 const STORAGE_MAIL = 'mailDB'
 
-let gUser = _loaFromStorage()
+let gMail = _loaFromStorage()
 
 
 
@@ -20,7 +20,8 @@ export const mailService = {
   removeLabel,
   getAvailableLabels,
   addNewMailLabel,
-  addNewLabel
+  addNewLabel,
+  toggleMailStar
 };
 
 function _createDB() {
@@ -28,92 +29,103 @@ function _createDB() {
     mails: [
       {
         id: makeId(),
-        from: makeLorem(1),
-        subject: 'first?',
+        from: 'Matan',
+        subject: 'Things are getting better',
         body:
-          'various people burn I had to The sky it a different story more or less It',
+          'I\'m almost done with the map, can you login and take a look?',
         isRead: false,
-        sentAt: Date.now(),
+        sentAt: '24/4/21',
         labels: ['All', 'Inbox'],
       },
       {
         id: makeId(),
-        from: makeLorem(1),
-        subject: 'seconed?',
+        from: 'Liel',
+        subject: 'Checking on your progress',
         body:
-          'from various people I as generally It and . in such cases in such cases from various people a pleasure tuned a dead channel It a dead channel had burn to was The sky bit by bit tuned each time to . above was All I The sky the port a pleasure the color of television this happened . All a dead channel was more or less each time It as generally All was a pleasure The sky from various people bit by bit tuned . from various people to . and All this happened I in such cases to a dead channel the color of television the color of television a different story to . a different story and a dead channel . The sky burn a dead channel it to was The sky ',
+          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
         isRead: false,
-        sentAt: Date.now(),
+        sentAt: '25/4/21',
         labels: ['All', 'Inbox'],
       },
       {
         id: makeId(),
-        from: makeLorem(1),
-        subject: 'first & thirs?',
+        from: 'Ilai',
+        subject: 'bit by bit',
         body:
-          'above I tuned in such cases as generally . I in such cases more or less happens tuned All as generally the story . tuned a dead channel each time was to . The sky a different story more or less in such cases each time . a pleasure a dead channel All and',
+          'whatsuuuppppp?!?!?!???!?!?!?!',
         isRead: true,
-        sentAt: Date.now(),
+        sentAt: '1/5/21',
         labels: ['All', 'Inbox', 'Star'],
+      },
+      {
+        id: makeId(),
+        from: 'Matan',
+        subject: 'Things are getting better',
+        body:
+          'I\'m almost done with the map, can you login and take a look?',
+        isRead: false,
+        sentAt: '2/5/21',
+        labels: ['All', 'Inbox'],
       },
     ],
     labels: [
       'All',
-      'Sent',
+      'Star',
       'Inbox',
-      'Star'
+      'Sent',
     ]
   }
 }
 
 function query(filterBy) {
-  if (!gUser) {
-    gUser = _createDB()
+  if (!gMail) {
+    gMail = _createDB()
     _saveToStorage()
   }
   if (!filterBy.txt && filterBy.mailStatus === '') {
-    console.log('from without filter');
-    return Promise.resolve(gUser);
+    return Promise.resolve(gMail);
   }
-  const { txt, mailStatus } = filterBy;
-  console.log(mailStatus);
+  let { txt, mailStatus } = filterBy;
   const filteredBy = {}
-  filteredBy.mails = gUser.mails.filter((mail) => {
+  if (mailStatus === 'read') mailStatus = true
+  if (mailStatus === 'unRead') mailStatus = false
+
+  filteredBy.mails = gMail.mails.filter((mail) => {
+    const filterRegex = new RegExp(txt, 'i');
     return (
-      mail.subject.toUpperCase().includes(txt.toUpperCase()) &&
-      mail.from.toUpperCase().includes(txt.toUpperCase()) &&
-      mail.body.toUpperCase().includes(txt.toUpperCase()) &&
-      mail.isRead === mailStatus
+      (filterRegex.test(mail.from) ||
+        filterRegex.test(mail.subject) ||
+        filterRegex.test(mail.body))
     );
   });
-  filteredBy.labels = gUser.labels
-  console.log(filteredBy);
-  console.log('from with filter');
+  if (mailStatus !== 'all') filteredBy.mails = filteredBy.mails.filter(mail => mail.isRead === mailStatus)
+  filteredBy.labels = gMail.labels
   return Promise.resolve(filteredBy);
 }
 
+
 function getMailById(mailId) {
-  const mail = gUser.mails.find((mail) => mail.id === mailId);
+  const mail = gMail.mails.find((mail) => mail.id === mailId);
   return Promise.resolve(mail);
 }
 
 function remove(mailId) {
-  const mailIdx = gUser.mails.findIndex((mail) => mail.id === mailId);
-  gUser.mails.splice(mailIdx, 1);
+  const mailIdx = gMail.mails.findIndex((mail) => mail.id === mailId);
+  gMail.mails.splice(mailIdx, 1);
   _saveToStorage()
-  return Promise.resolve(gUser.mails);
+  return Promise.resolve(gMail.mails);
 }
 
 function toggleIsRead(mailId) {
-  const chosenMailIdx = gUser.mails.findIndex((mail) => mail.id === mailId);
-  gUser.mails[chosenMailIdx].isRead = !gUser.mails[chosenMailIdx].isRead;
+  const chosenMailIdx = gMail.mails.findIndex((mail) => mail.id === mailId);
+  gMail.mails[chosenMailIdx].isRead = !gMail.mails[chosenMailIdx].isRead;
   _saveToStorage()
-  return Promise.resolve(gUser)
+  return Promise.resolve(gMail)
 }
 
 function sendMail(composedMail) {
   return _createMail(composedMail)
-    .then(() => Promise.resolve(gUser.mails))
+    .then(() => Promise.resolve(gMail.mails))
 }
 
 function _createMail({ subject, body }) {
@@ -127,55 +139,69 @@ function _createMail({ subject, body }) {
     sentAt: Date.now(),
     labels: ['All', 'Sent'],
   }
-  gUser.mails.push(newMail)
+  gMail.mails.push(newMail)
   _saveToStorage()
   return Promise.resolve('success')
 }
 
 function getByLabel(label) {
-  const filteredMails = gUser.mails.filter(mail => {
+  const filteredMails = gMail.mails.filter(mail => {
     return mail.labels.includes(label)
   })
   return Promise.resolve(filteredMails)
 }
 
 function getLabels() {
-  return gUser.labels
+  return gMail.labels
 }
 
 function removeLabel(mailId, userLabel) {
-  const mailIdx = gUser.mails.findIndex(mail => {
+  const mailIdx = gMail.mails.findIndex(mail => {
     return mail.id === mailId
   })
-  const labelIdx = gUser.mails[mailIdx].labels.findIndex(label => {
+  const labelIdx = gMail.mails[mailIdx].labels.findIndex(label => {
     return label === userLabel
   })
-  gUser.mails[mailIdx].labels.splice(labelIdx, 1)
+  gMail.mails[mailIdx].labels.splice(labelIdx, 1)
   _saveToStorage()
-  return Promise.resolve(gUser.mails[mailIdx])
+  return Promise.resolve(gMail.mails[mailIdx])
 }
 
 function addNewMailLabel(mailId, label) {
-  const mailIdx = gUser.mails.findIndex(mail => {
+  const mailIdx = gMail.mails.findIndex(mail => {
     return mail.id === mailId
   })
-  gUser.mails[mailIdx].labels.push(label)
+  gMail.mails[mailIdx].labels.push(label)
   _saveToStorage()
-  return Promise.resolve(gUser.mails[mailIdx])
+  return Promise.resolve(gMail.mails[mailIdx])
 }
 
 function addNewLabel(newLabel) {
-  gUser.labels.push(newLabel)
+  gMail.labels.push(newLabel)
   _saveToStorage()
-  return Promise.resolve(gUser.labels)
+  return Promise.resolve(gMail.labels)
 }
 
 function getAvailableLabels() {
-  return gUser.labels
+  return gMail.labels
+}
+
+function toggleMailStar(mailId) {
+  const mailIdx = gMail.mails.findIndex(mail => {
+    return mail.id === mailId
+  })
+  if (gMail.mails[mailIdx].labels.includes('Star')) {
+    const labelIdx = gMail.mails[mailIdx].labels.findIndex(label => label === 'Star')
+    gMail.mails[mailIdx].labels.splice(labelIdx)
+  } else {
+    gMail.mails[mailIdx].labels.push('Star')
+  }
+  _saveToStorage()
+  return Promise.resolve(gMail.mails)
 }
 
 function _saveToStorage() {
-  storageService.saveToStorage(STORAGE_MAIL, gUser)
+  storageService.saveToStorage(STORAGE_MAIL, gMail)
 }
 
 function _loaFromStorage() {

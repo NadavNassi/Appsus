@@ -19,7 +19,6 @@ export class MailApp extends React.Component {
   };
 
   componentDidMount() {
-    console.log('on mount');
     this.loadUserData();
   }
 
@@ -29,9 +28,7 @@ export class MailApp extends React.Component {
         const { mails, labels } = userData
         this.setState({ mails, labels });
         const unreadMail = mails.filter((mail) => !mail.isRead);
-        eventBusService.emit('mail-count', {
-          unreadMailCount: unreadMail.length,
-        });
+        eventBusService.emit('mail-count', unreadMail.length);
       });
   };
 
@@ -48,7 +45,11 @@ export class MailApp extends React.Component {
   }
 
   onReadMail = (mailId) => {
-    mailService.toggleIsRead(mailId).then(({ mails, labels }) => this.setState({ mails, labels }));
+    mailService.toggleIsRead(mailId).then(({ mails, labels }) => {
+      this.setState({ mails, labels })
+      const unreadMail = mails.filter((mail) => !mail.isRead);
+      eventBusService.emit('mail-count', unreadMail.length);
+    });
   };
 
   onSetFilter = (filterBy) => {
@@ -75,6 +76,13 @@ export class MailApp extends React.Component {
       .then(mails => this.setState({ mails }))
   }
 
+  onStarMail = (mailId) => {
+    mailService.toggleMailStar(mailId)
+      .then(mails => {
+        this.setState({ mails })
+      })
+  }
+
   render() {
     const { mails, labels } = this.state;
     if (!mails) return <Loader />
@@ -84,7 +92,7 @@ export class MailApp extends React.Component {
         <div className="mail-app-grid grid">
           <SideNav labels={labels} onLabelSelect={this.onLabelSelect} onAddLabel={this.onAddLabel} onCloseModal={this.onCloseModal} />
           <div className="not-nav">
-            <MailList mails={mails} onReadMail={this.onReadMail} onRemoveMail={this.onRemoveMail} />
+            <MailList mails={mails} onReadMail={this.onReadMail} onRemoveMail={this.onRemoveMail} onStarMail={this.onStarMail} />
 
             <Route exact component={() => <MailCompose onComposeMail={this.onComposeMail} />} exact path={'/mail/compose-mail'} />
             <Link className='compose-btn' to='/mail/compose-mail'>
