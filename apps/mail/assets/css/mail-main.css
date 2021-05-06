@@ -6,7 +6,7 @@
 @import './cmps/side-nav.css';
 @import './cmps/label-add.css';
 @import './responsive/mail-mobile.css';
-@import './responsive/mail-desktop.css' screen and (min-with: 800px);
+@import "./responsive/mail-desktop.css" screen and (min-width: 800px);
 .mail-app {
   font-family: poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
