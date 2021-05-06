@@ -4,6 +4,7 @@ class _MailCompose extends React.Component {
 
   state = {
     composeMail: {
+      from: '',
       subject: '',
       body: ''
     }
@@ -28,21 +29,23 @@ class _MailCompose extends React.Component {
 
 
   render() {
-    const { subject, body } = this.state.composeMail
+    const { to, subject, body } = this.state.composeMail
     return (
       <React.Fragment>
         <div className="compose-screen"></div>
         <div className="compose-modal">
           <form className='compose-mail' onSubmit={this.onSubmit}>
             <h3>Compose mail</h3>
+            <label htmlFor="compose-to">To</label>
+            <input type="email" name="from" id="compose-to" value={to} onChange={this.handleChange} />
             <label htmlFor='compose-subject'>Subject</label>
-            <textarea
+            <input
               value={subject}
               name='subject'
               id='compose-subject'
               className='compose-subject'
               onChange={this.handleChange}
-            ></textarea>
+            ></input>
             <label htmlFor='compose-body'>Body</label>
             <textarea
               value={body}
