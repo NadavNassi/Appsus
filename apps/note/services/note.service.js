@@ -4,17 +4,28 @@ import { utilService } from "../../../services/util-service.js"
 import { notes } from "./storage/notes.js"
 export const noteService = { query, onAddNote, removeNote, editNote, pinNote,mapTypeAmount }
 const KEY = 'notes';
+const KEYPINNED = 'pinned';
 
 var gNotes = storageService.loadFromStorage(KEY) || _loadNotesToStorage().then(res => res)
+var gPinnedNotes = storageService.loadFromStorage(KEYPINNED) || [];
 
 
 function query() {
-    return Promise.resolve(gNotes)
+    let notes = {
+        gNotes, 
+        gPinnedNotes
+    }
+    return Promise.resolve(notes)
 }
 
 function removeNote(id) {
-    const idx = gNotes.findIndex(note => note.id === id)
-    gNotes.splice(idx, 1);
+    let idx = gNotes.findIndex(note => note.id === id)
+    if(idx ===-1){
+    idx = gPinnedNotes.findIndex(note => note.id === id)
+    gPinnedNotes.splice(idx, 1);
+    }else{
+        gNotes.splice(idx, 1);
+    }
     _saveNotesToStorage();
     return Promise.resolve();
 }
@@ -33,7 +44,8 @@ function onAddNote(note) {
             map: note.map
         }
     }
-    pinLocation(newNote);
+    gNotes.unshift(newNote);
+    _saveNotesToStorage();
     return Promise.resolve();
 }
 
@@ -43,8 +55,13 @@ function mapTypeAmount(){
     return Promise.resolve(notes.length + 1);
 }
 
+
+
 function getNoteById(noteId) {
     var note = gNotes.find(note => noteId === note.id)
+    if(!note){
+        note = gPinnedNotes.find(note => noteId === note.id)
+    }
     return Promise.resolve(note)
 }
 
@@ -68,22 +85,35 @@ function editNote(newNote, noteId) {
 function pinLocation(newNote) {
     const pinNotes = gNotes.filter(note => note.isPinned)
     const unPinnedNotes = gNotes.filter(note => !note.isPinned)
-    unPinnedNotes.unshift(newNote);
-    gNotes = pinNotes.concat(unPinnedNotes);
+    pinNotes.unshift(newNote);
+    gPinnedNotes=pinNotes;
+    gNotes = unPinnedNotes;
     // console.log(gNotes)
     _saveNotesToStorage();
 }
 function pinNote(noteId) {
-    const idx = gNotes.findIndex(note => note.id === noteId)
+    const idxNotes = gNotes.findIndex(note => note.id === noteId)
+    const idxPinnedNotes = gPinnedNotes.findIndex(note => note.id === noteId)
+    console.log('idxNotes',idxNotes,'idxPinnedNotes',idxPinnedNotes)
+    console.log(idxPinnedNotes)
     return getNoteById(noteId)
         .then((note) => {
             note.isPinned = !note.isPinned;
             const newNote = note;
-            gNotes.splice(idx, 1);
             if (note.isPinned) {
-                gNotes.unshift(newNote);
+                if(idxNotes !== -1){
+                    console.log('note')
+                    gNotes.splice(idxNotes, 1);
+                }
+                gPinnedNotes.push(newNote);
+
             } else {
-                gNotes.push(newNote);
+                if(gPinnedNotes !== -1){
+                    console.log('pinnedNote')
+
+                    gPinnedNotes.splice(idxPinnedNotes, 1);
+                }
+                gNotes.unshift(newNote);
             }
             _saveNotesToStorage();
             return Promise.resolve();
@@ -97,8 +127,11 @@ function pinNote(noteId) {
 
 function _saveNotesToStorage() {
     storageService.saveToStorage(KEY, gNotes);
+    storageService.saveToStorage(KEYPINNED, gPinnedNotes);
     return gNotes;
 }
+
+
 
 function _loadNotesToStorage() {
     return new Promise((resolve) => {

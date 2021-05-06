@@ -2,10 +2,12 @@ const { Link, Route } = ReactRouterDOM;
 import { noteService } from "./services/note.service.js";
 import { NoteList } from "./cmps/NoteList.jsx";
 import { NoteModal } from "./cmps/NoteModal.jsx";
+import { NoteFilter } from "./cmps/NoteFilter.jsx";
 
 export class NoteApp extends React.Component {
   state = {
     notes: null,
+    pinnedNotes:null,
     filter: null,
     selectedNote: null,
   };
@@ -14,7 +16,8 @@ export class NoteApp extends React.Component {
   }
   loadNotes() {
     noteService.query(this.state.filter).then((notes) => {
-      this.setState({ notes });
+        console.log(notes);
+      this.setState({ notes:notes.gNotes,pinnedNotes:notes.gPinnedNotes });
     });
   }
 
@@ -29,6 +32,7 @@ export class NoteApp extends React.Component {
     });
   };
   onPinnedNote = (nodeId) => {
+      console.log('pinned')
     noteService.pinNote(nodeId).then(() => {
       this.loadNotes();
     });
@@ -51,11 +55,30 @@ export class NoteApp extends React.Component {
     // });
   };
   render() {
-    const { notes} = this.state;
+    const { notes,pinnedNotes} = this.state;
     if (!notes) return <div>Loading...</div>;
+
     return (
       <section className="note-page-container">
         <section className="container">
+            <section className="note-filter-section">
+                <NoteFilter/>
+            </section>
+        <section className="pinned-container">
+            <h2>Pinned Notes:</h2>
+        { pinnedNotes && 
+                <NoteList
+                setMap={this.setMap}
+                onEditNote={this.onEditNote}
+                onDeleteNote={this.onDeleteNote}
+                onPinnedNote={this.onPinnedNote}
+                notes={pinnedNotes}
+              />
+            }
+          
+          </section>
+            <section className="unpinned-container">
+                <h2>UnPinned notes</h2>
           <NoteList
             setMap={this.setMap}
             onEditNote={this.onEditNote}
@@ -63,6 +86,7 @@ export class NoteApp extends React.Component {
             onPinnedNote={this.onPinnedNote}
             notes={notes}
           />
+          </section>
         </section>
         <Route
           component={() => <NoteModal onAddNote={this.onAddNote} />}
