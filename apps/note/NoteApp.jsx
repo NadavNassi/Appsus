@@ -8,15 +8,15 @@ export class NoteApp extends React.Component {
   state = {
     notes: null,
     pinnedNotes:null,
-    filter: null,
+    filterBy: null,
     selectedNote: null,
   };
   componentDidMount() {
+      console.log(this.state.notes);
     this.loadNotes();
   }
   loadNotes() {
-    noteService.query(this.state.filter).then((notes) => {
-        console.log(notes);
+    noteService.query(this.state.filterBy).then((notes) => {
       this.setState({ notes:notes.gNotes,pinnedNotes:notes.gPinnedNotes });
     });
   }
@@ -32,7 +32,6 @@ export class NoteApp extends React.Component {
     });
   };
   onPinnedNote = (nodeId) => {
-      console.log('pinned')
     noteService.pinNote(nodeId).then(() => {
       this.loadNotes();
     });
@@ -42,27 +41,22 @@ export class NoteApp extends React.Component {
       this.loadNotes();
     });
   };
-  setMap = (map) => {
-    // const searchVal = `address=${map}`;
-    //  noteService.mapTypeAmount().then((res) => {
-    //   <div id={`map${res}`}></div>;
-    //   return mapService.getLocationByVal(searchVal)
-    //    .then((res) => {
-    //     const lnglat = res[0].geometry.location;
-    //     const locationName = res[0].address_components[1].long_name;
-    //     mapService.setLocation(lnglat, locationName, res);
-    //   });
-    // });
-  };
+  setFilter = (filterBy)=>{
+    this.setState({ filterBy },()=>{this.loadNotes()});
+  }
+
+
+  
   render() {
     const { notes,pinnedNotes} = this.state;
     if (!notes) return <div>Loading...</div>;
 
     return (
-      <section className="note-page-container">
+      <section className="note-page-container animate__animated animate__fadeInRight">
         <section className="container">
+
             <section className="note-filter-section">
-                <NoteFilter/>
+                <NoteFilter setFilter={this.setFilter}/>
             </section>
         <section className="pinned-container">
             <h2>Pinned Notes:</h2>

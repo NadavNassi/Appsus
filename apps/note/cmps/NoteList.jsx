@@ -10,6 +10,7 @@ export class NoteList extends React.Component {
       onPinnedNote,
       setMap,
     } = this.props;
+    if (!notes.length) return <h4>Nothing to show here</h4>;
     return (
       <section className="notes-container">
           {(!notes.length) && <div className="inline"></div>}

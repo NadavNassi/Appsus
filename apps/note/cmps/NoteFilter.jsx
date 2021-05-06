@@ -6,13 +6,10 @@ export class NoteFilter extends React.Component {
         }
     };
 
-    handleChange = (ev) => {
-        const callback = () => {
-            this.props.setFilter(this.state.filterBy);
-        };
-        const filterBy = { ...this.state.filterBy }
-        filterBy[ev.target.name] = ev.target.value;
-        this.setState({ filterBy }, callback);
+    handleChange = (ev) => { 
+        const field = ev.target.name;
+        const value = ev.target.value;
+        this.setState({ filterBy :{ ...this.state.filterBy,[field]:value}},()=>{this.props.setFilter(this.state.filterBy)});
     };
 
     render() {
@@ -25,12 +22,12 @@ export class NoteFilter extends React.Component {
             <select name="type" value={this.state.filterBy.type}
                 onChange={this.handleChange}>
                 <option value="">All</option>
-                <option value="noteText">Text</option>
-                <option value="noteImg">Image</option>
-                <option value="noteAudio">Image</option>
-                <option value="noteVideo">Video</option>
-                <option value="noteTodos">Todos</option>
-                <option value="noteMap">Map</option>
+                <option value="NoteText">Text</option>
+                <option value="NoteImg">Image</option>
+                <option value="NoteAudio">Audio</option>
+                <option value="NoteVideo">Video</option>
+                <option value="NoteTodos">Todos</option>
+                <option value="NoteMap">Map</option>
             </select>
         </section>;
     }

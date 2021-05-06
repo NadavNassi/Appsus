@@ -79,7 +79,7 @@ export class MailApp extends React.Component {
     const { mails, labels } = this.state;
     if (!mails) return <Loader />
     return (
-      <section className='mail-app'>
+      <section className='mail-app animate__animated animate__fadeInLeft'>
         <MailFilter onSetFilter={this.onSetFilter} />
         <div className="mail-app-grid grid">
           <SideNav labels={labels} onLabelSelect={this.onLabelSelect} onAddLabel={this.onAddLabel} onCloseModal={this.onCloseModal} />

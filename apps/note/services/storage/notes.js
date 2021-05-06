@@ -128,45 +128,5 @@ export const notes = [
         info: {
             txt: "Fullstack Me Baby!"
         }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
     },
 ];
