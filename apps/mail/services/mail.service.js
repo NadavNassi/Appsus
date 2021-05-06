@@ -71,20 +71,24 @@ function query(filterBy) {
     gUser = _createDB()
     _saveToStorage()
   }
-  if (!filterBy.txt && !filterBy.mailStatus) {
+  if (!filterBy.txt && filterBy.mailStatus === '') {
+    console.log('from without filter');
     return Promise.resolve(gUser);
   }
   const { txt, mailStatus } = filterBy;
+  console.log(mailStatus);
   const filteredBy = {}
   filteredBy.mails = gUser.mails.filter((mail) => {
     return (
-      mail.subject.toUpperCase().includes(txt.toUpperCase()) ||
-      mail.from.toUpperCase().includes(txt.toUpperCase()) ||
+      mail.subject.toUpperCase().includes(txt.toUpperCase()) &&
+      mail.from.toUpperCase().includes(txt.toUpperCase()) &&
       mail.body.toUpperCase().includes(txt.toUpperCase()) &&
       mail.isRead === mailStatus
     );
   });
   filteredBy.labels = gUser.labels
+  console.log(filteredBy);
+  console.log('from with filter');
   return Promise.resolve(filteredBy);
 }
 
@@ -102,8 +106,9 @@ function remove(mailId) {
 
 function toggleIsRead(mailId) {
   const chosenMailIdx = gUser.mails.findIndex((mail) => mail.id === mailId);
-  gUser.mails[chosenMailIdx].isRead = true;
-  return Promise.resolve(gMails)
+  gUser.mails[chosenMailIdx].isRead = !gUser.mails[chosenMailIdx].isRead;
+  _saveToStorage()
+  return Promise.resolve(gUser)
 }
 
 function sendMail(composedMail) {

@@ -19,6 +19,7 @@ export class MailApp extends React.Component {
   };
 
   componentDidMount() {
+    console.log('on mount');
     this.loadUserData();
   }
 
@@ -29,7 +30,6 @@ export class MailApp extends React.Component {
         this.setState({ mails, labels });
         const unreadMail = mails.filter((mail) => !mail.isRead);
         eventBusService.emit('mail-count', {
-          mailCount: mails.length,
           unreadMailCount: unreadMail.length,
         });
       });
@@ -48,7 +48,7 @@ export class MailApp extends React.Component {
   }
 
   onReadMail = (mailId) => {
-    mailService.toggleIsRead(mailId).then((mails) => this.setState({ mails }));
+    mailService.toggleIsRead(mailId).then(({ mails, labels }) => this.setState({ mails, labels }));
   };
 
   onSetFilter = (filterBy) => {
