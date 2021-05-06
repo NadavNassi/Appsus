@@ -3,7 +3,8 @@
 @import "./cmps/nav-header-cmps.css";
 @import "./helpers.css";
 @import "./cmps/modal.css";
-@import "../../apps/book/assets/css/book-main.css";
+/* @import "../../apps/book/assets/css/book-main.css"; */
+
 @import "../../apps/note/assets/css/note-main.css";
 * {
   box-sizing: border-box;

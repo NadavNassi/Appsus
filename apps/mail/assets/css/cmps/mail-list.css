@@ -1,11 +1,7 @@
-.mail-list .mail-header {
+.mail-list {
   grid-template-columns: 10% 10% 65% 10% 5%;
   padding: 10px;
   align-items: center;
   gap: 5px 0;
-}
-
-.mail-list a:nth-child(n+4) {
-  background-color: ivory;
-  color: black;
+  max-width: 90%;
 }
