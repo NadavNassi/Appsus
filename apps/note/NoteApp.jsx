@@ -59,7 +59,7 @@ export class NoteApp extends React.Component {
                 <NoteFilter setFilter={this.setFilter}/>
             </section>
         <section className="pinned-container">
-            <h2>Pinned Notes:</h2>
+            <h2 className="title-note">Pinned Notes:</h2>
         { pinnedNotes && 
                 <NoteList
                 setMap={this.setMap}
@@ -72,7 +72,7 @@ export class NoteApp extends React.Component {
           
           </section>
             <section className="unpinned-container">
-                <h2>UnPinned notes</h2>
+                <h2 className="title-note">UnPinned notes</h2>
           <NoteList
             setMap={this.setMap}
             onEditNote={this.onEditNote}

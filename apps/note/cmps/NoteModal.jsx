@@ -115,7 +115,7 @@ class _NoteModal extends React.Component {
         ref={this.myRef}
         className={`modal-container ${this.setNoteState(id).className} `}
       >
-        <div className="modal note-modal animate__animated animate__fadeIn">
+        <div className="modal note-modal animate__animated animate__fadeIn__faster">
           <span onClick={this.closeModal} className="close-modal">
             x
           </span>

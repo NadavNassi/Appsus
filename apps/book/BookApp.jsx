@@ -28,10 +28,9 @@ export class BookApp extends React.Component {
         const { books } = this.state;
         if (!books) return <Loader />
         return (
-            <section className='book-app'>
+            <section className='book-app animate__animated animate__fadeInRight'>
 
                 <BookFilter onSetFilter={this.onSetFilter} />
-
                 <BookList books={books} />
                 <Link className='compose-btn' to='/book/add-book'>
                     <i className="fas fa-plus"></i>

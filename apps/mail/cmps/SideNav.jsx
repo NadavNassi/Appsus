@@ -5,6 +5,7 @@ import { Loader } from '../../../cmps/Loader.jsx'
 import { LabelAdd } from './LabelAdd.jsx'
 
 export class SideNav extends React.Component {
+    
     render() {
         const { labels, onLabelSelect, onAddLabel, onCloseModal } = this.props
         if (!labels) <Loader />

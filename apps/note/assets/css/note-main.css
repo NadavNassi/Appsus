@@ -4,6 +4,11 @@
 @import "./cmps/add-note.css";
 @import "./cmps/note-filter.css";
 
+@import "./responsive-design/note-mobile.css";
+@import "./responsive-design/note-tablet.css" screen and (min-width: 600px);
+@import "./responsive-design/note-desktop.css" screen and (min-width: 1160px);
+
+
 /* LAYOUT */
 .note-page-container {
   position: relative;
@@ -12,12 +17,12 @@
   justify-content: center;
   align-items: flex-start;
 }
-.note-list {
-  column-count: 4;
-    column-span: all;
-    break-inside: avoid;
-    column-gap: 10px;
+
+.title-note{
+  text-align: center;
+  font-family: inco ,Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
+
 /* .notes-container {
   margin: 1.2rem;
   display: flex;
@@ -69,4 +74,10 @@
 .add-note:hover {
   background-color: rgb(46, 46, 46);
   color: rgb(255, 255, 255);
+}
+
+
+
+:root {
+  --animate-duration: 0.5s;
 }
