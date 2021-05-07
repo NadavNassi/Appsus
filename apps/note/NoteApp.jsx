@@ -52,7 +52,7 @@ export class NoteApp extends React.Component {
     if (!notes) return <div>Loading...</div>;
 
     return (
-      <section className="note-page-container animate__animated animate__fadeInRight">
+      <section className="note-page-container ">
         <section className="container">
 
             <section className="note-filter-section">

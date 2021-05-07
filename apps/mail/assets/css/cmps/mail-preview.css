@@ -1,5 +1,4 @@
 .mail-list .mail-preview {
-  grid-template-columns: 10% 10% 65% 10% 5%;
   border: 1px solid rgb(34, 34, 34);
   padding: 10px;
   cursor: pointer;
@@ -10,17 +9,16 @@
   font-weight: bolder;
 }
 
-.preview-container {
-  grid-template-columns: repeat(2, auto);
-}
+
 
 td a {
   color: black;
+  padding: 0;
 }
+
 
 .actions-btns {
   padding: 5px;
-  flex-wrap: wrap;
 }
 
 .fas.fa-star {

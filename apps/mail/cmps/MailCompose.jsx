@@ -47,21 +47,18 @@ class _MailCompose extends React.Component {
     const { to, subject, body } = this.state.composeMail
     return (
       <React.Fragment>
-        <div className="compose-screen"></div>
-        <div className="compose-modal">
-          <form className='compose-mail' onSubmit={this.onSubmit}>
-            <h3>{this.props.mail ? `Replay ${this.props.mail.from}` : 'New mail'}</h3>
-            <label htmlFor="compose-to">To</label>
-            <input type="email" name="from" id="compose-to" value={to} onChange={this.handleChange} />
-            <label htmlFor='compose-subject'>Subject</label>
+        <div className="compose-screen">
+          <form className='compose-mail animate__animated animate__fadeInUp' onSubmit={this.onSubmit}>
+          <div className="compose-header"><h5>{this.props.mail ? `Replay ${this.props.mail.from}` : 'New mail'}</h5> <button className="close-mail" onClick={this.onCloseModal}><i className="fas fa-times"></i></button></div>
+            <input type="email" name="from" id="compose-to" value={to} onChange={this.handleChange} placeholder="To" />
             <input
               value={subject}
               name='subject'
               id='compose-subject'
               className='compose-subject'
               onChange={this.handleChange}
+              placeholder="Subject"
             ></input>
-            <label htmlFor='compose-body'>Body</label>
             <textarea
               value={body}
               name='body'
@@ -70,8 +67,7 @@ class _MailCompose extends React.Component {
               onChange={this.handleChange}
             ></textarea>
             <div className="edit-line flex">
-              <button onClick={this.onCloseModal}>Discard</button>
-              <button type='submit'>Send!</button>
+              <button className="send-mail-btn" type='submit'>Send</button>
             </div>
           </form>
         </div>

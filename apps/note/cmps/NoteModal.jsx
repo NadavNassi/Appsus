@@ -45,11 +45,7 @@ class _NoteModal extends React.Component {
       },
     }));
   };
-  componentWillUnmount(){
-    const node = this.myRef.current;
-    node.classList.add("animate__animated.animate__fadeOut");
 
-  }
 
   componentDidMount() {
     this.myRef = React.createRef();
