@@ -205,6 +205,7 @@ function query(filterBy) {
   if (!filterBy.txt && filterBy.mailStatus === '') {
     return Promise.resolve(gMail);
   }
+  
   let { txt, mailStatus } = filterBy;
   const filteredBy = {}
   if (mailStatus === 'read') mailStatus = true

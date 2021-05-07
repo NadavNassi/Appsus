@@ -10,9 +10,11 @@ export class MailFilter extends React.Component {
   handleChange = ({ target }) => {
     const field = target.name;
     const value = target.type === 'select-one' ? this.getMailStatus(target.value) : target.value
+    console.log(field, value)
     this.setState(({ filterBy }) => ({
       filterBy: { ...filterBy, [field]: value },
     }));
+    
   };
 
   getMailStatus = (status) => {
