@@ -186,56 +186,6 @@ function _createDB() {
         isRead: false,
         sentAt: '2/5/21',
         labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Matan',
-        subject: 'Things are getting better',
-        body:
-          'I\'m almost done with the map, can you login and take a look?',
-        isRead: false,
-        sentAt: '24/4/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Liel',
-        subject: 'Checking on your progress',
-        body:
-          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
-        isRead: false,
-        sentAt: '25/4/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Ilai',
-        subject: 'bit by bit',
-        body:
-          'whatsuuuppppp?!?!?!???!?!?!?!',
-        isRead: true,
-        sentAt: '1/5/21',
-        labels: ['All', 'Inbox', 'Star'],
-      },
-      {
-        id: makeId(),
-        from: 'Matan',
-        subject: 'Things are getting better',
-        body:
-          'I\'m almost done with the map, can you login and take a look?',
-        isRead: false,
-        sentAt: '2/5/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Matan',
-        subject: 'Things are getting better',
-        body:
-          'I\'m almost done with the map, can you login and take a look?',
-        isRead: false,
-        sentAt: '24/4/21',
-        labels: ['All', 'Inbox'],
       }
     ],
     labels: [
@@ -294,8 +244,27 @@ function toggleIsRead(mailId) {
 }
 
 function sendMail(composedMail) {
+  if (composedMail.id) {
+    _replayMail(composedMail)
+      .then(() => Promise.resolve())
+  }
   return _createMail(composedMail)
     .then(() => Promise.resolve(gMail.mails))
+}
+
+function _replayMail(composedMail) {
+  const mailIdx = gMail.mails.findIndex(mail => {
+    return mail.id === composedMail.id
+  })
+  gMail.mails[mailIdx] = {
+    ...gMail.mails[mailIdx],
+    id: makeId(),
+    from: 'me',
+    subject: composedMail.subject,
+    body: composedMail.body,
+    sentAt: Date.now()
+  }
+  _saveToStorage()
 }
 
 function _createMail({ subject, body, from }) {
@@ -305,7 +274,7 @@ function _createMail({ subject, body, from }) {
     from: from,
     subject: subject,
     body: body,
-    isRead: false,
+    isRead: true,
     sentAt: Date.now(),
     labels: ['All', 'Sent'],
   }

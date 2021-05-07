@@ -1,5 +1,7 @@
-const { withRouter } = ReactRouterDOM
 
+const { withRouter, Route, Link } = ReactRouterDOM
+
+import { MailCompose } from '../cmps/MailCompose.jsx'
 import { Loader } from "../../../cmps/Loader.jsx";
 import { mailService } from "../services/mail.service.js";
 import { LabelList } from '../cmps/LabelList.jsx'
@@ -51,11 +53,15 @@ class _MailDetails extends React.Component {
     this.props.history.push('/mail')
   }
 
+  onComposeMail = (mail) => {
+    mailService.sendMail(mail)
+  }
+
 
 
   render() {
     if (!this.state.mail) return <Loader />
-    const { from, subject, body, labels } = this.state.mail;
+    const { from, subject, body, labels, id } = this.state.mail;
     return (
       <section className='mail-details'>
         <div className='mail'>
@@ -79,6 +85,10 @@ class _MailDetails extends React.Component {
         </div>
         <div className='edit-mail flex'>
           <button className='btn back-btn' onClick={this.onCloseMail}>Back to mail box</button>
+          <Route exact component={() => <MailCompose mail={this.state.mail} onComposeMail={this.onComposeMail} />} exact path={`/mail/read/:mailId/replay-mail`} />
+          <Link className='replay-btn decoration-none' to={`/mail/read/${id}/replay-mail`}>
+            Replay
+          </Link>
           <button
             className='btn delete-btn right-self'
             onClick={this.onRemoveMail}

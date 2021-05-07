@@ -9,6 +9,21 @@ class _MailCompose extends React.Component {
       body: ''
     }
   }
+  componentDidMount() {
+    if (this.props.mail) {
+      let { body, subject, from } = this.props.mail
+      subject = `re::${from} ` + subject
+      body = '\n \n \n ==================' + body
+      this.setState(prevState => ({
+        composeMail: {
+          ...prevState,
+          from,
+          subject,
+          body
+        }
+      }))
+    }
+  }
 
   onSubmit = (ev) => {
     ev.preventDefault()
