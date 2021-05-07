@@ -1,0 +1,32 @@
+.book-container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.book-details {
+    flex: 1;
+    text-align: center;
+}
+
+.book-desc {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: baseline;
+}
+
+.nav-btns {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn-next, .btn-preview {
+    color: black;
+    cursor: pointer;
+    background-color: rgb(235, 235, 235);
+    border: 1px solid black;
+    font-size: .9rem;
+    border-radius: 2px;
+    padding-inline: 5px;
+}
