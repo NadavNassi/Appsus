@@ -1,5 +1,6 @@
 .mail-list {
   /* grid-template-columns: 10% 10% 65% 10% 5%; */
+  
   padding: 10px;
   max-width: 90%;
   margin: 0 auto;
@@ -9,21 +10,24 @@
   border-collapse: collapse;
   margin: 0 auto;
   min-width: 80%;
+  box-shadow:0 0 4px 0
 }
 
 .mail-list thead {
-  background-color: #00b894;
+  background-color: #2d3436;
+  color: aliceblue;
   border: 1px solid black;
 }
 
 .mail-list tbody {
-  background-color: #b2bec3;
+  background-color: #dfe6e9;
 }
 
 td {
+  padding-inline-start: .5rem;
   overflow: scroll;
+  border:none;
 }
-
-td:not(:last-child) {
-  border-right: 1px solid black;
+td>* {
+  padding: .3rem;
 }

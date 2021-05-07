@@ -12,7 +12,7 @@ export class NoteList extends React.Component {
     } = this.props;
     if (!notes.length) return <h4>Nothing to show here</h4>;
     return (
-      <section className="notes-container">
+      <section className="notes-container ">
           {(!notes.length) && <div className="inline"></div>}
         <ul className="note-list clean-list">
           {notes.map((note, idx) => {           
