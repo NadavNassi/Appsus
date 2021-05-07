@@ -3,18 +3,16 @@ export class MailFilter extends React.Component {
   state = {
     filterBy: {
       txt: '',
-      mailStatus: '',
+      mailStatus: 'all',
     },
   }
 
   handleChange = ({ target }) => {
     const field = target.name;
-    const value = target.type === 'select-one' ? this.getMailStatus(target.value) : target.value
-    console.log(field, value)
+    const value = target.value
     this.setState(({ filterBy }) => ({
       filterBy: { ...filterBy, [field]: value },
-    }));
-    
+    }), () => this.onFilter(event));
   };
 
   getMailStatus = (status) => {
@@ -33,7 +31,7 @@ export class MailFilter extends React.Component {
 
   onFilter = (ev) => {
     ev.preventDefault();
-    this.props.onSetFilter(this.state.filterBy);
+    this.props.onSetFilter(this.state.filterBy)
   };
 
   render() {
@@ -58,9 +56,9 @@ export class MailFilter extends React.Component {
             value={mailStatus}
             onChange={this.handleChange}
           >
-            <option value=''>All</option>
-            <option value={true}>Read</option>
-            <option value={false}>Unread</option>
+            <option value='all'>All</option>
+            <option value='read'>Read</option>
+            <option value='unRead'>Unread</option>
           </select>
           <button className="filter-search-btn">Search</button>
 

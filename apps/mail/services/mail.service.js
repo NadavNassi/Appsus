@@ -29,10 +29,10 @@ function _createDB() {
     mails: [
       {
         id: makeId(),
-        from: 'Matan',
-        subject: 'Things are getting better',
+        from: 'eBay',
+        subject: '3 tips for shopping abroad',
         body:
-          'I\'m almost done with the map, can you login and take a look?',
+          'Ask the Seller for Express Shipping \n Even if Express Shipping isn/’t in the listing, you can contact the seller directly via private message and ask them to use express services.',
         isRead: false,
         sentAt: '24/4/21',
         labels: ['All', 'Inbox'],
@@ -40,9 +40,9 @@ function _createDB() {
       {
         id: makeId(),
         from: 'Liel',
-        subject: 'Checking on your progress',
+        subject: 'Sally Magrisso turns 93 today',
         body:
-          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
+          'Maybe call her and wish her happy birthday? she miss you a lot',
         isRead: false,
         sentAt: '25/4/21',
         labels: ['All', 'Inbox'],
