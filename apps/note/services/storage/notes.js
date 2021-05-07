@@ -1,132 +1,81 @@
 import {utilService} from '../../../../services/util-service.js'
 export const notes = [
+    
     {
         id:utilService.makeId(),
-        type: "NoteText",
+        type: "NoteVideo",
         isPinned: false,
         color:null,
         info: {
-            txt: "Fullstack Me Baby!"
+            video: "https://www.youtube.com/watch?v=z9eoubnO-pE&t=199s"
         }
-    },{
+    }, {
         id:utilService.makeId(),
         type: "NoteText",
         isPinned: false,
         color:null,
         info: {
-            txt: "Fullstack Me Baby!"
+            txt: "Nadav likes css very much"
         }
     },{
         id:utilService.makeId(),
-        type: "NoteText",
+        type: "NoteImg",
         isPinned: false,
         color:null,
         info: {
-            txt: "Fullstack Me Baby!"
+            img: "https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg"
         }
     },{
         id:utilService.makeId(),
-        type: "NoteText",
+        type: "NoteMap",
         isPinned: false,
         color:null,
         info: {
-            txt: "Fullstack Me Baby!"
+            map: "Tel Aviv!"
         }
     },{
         id:utilService.makeId(),
-        type: "NoteText",
+        type: "NoteMap",
         isPinned: false,
         color:null,
         info: {
-            txt: "Fullstack Me Baby!"
+            map: "Tel Aviv!"
         }
     },{
         id:utilService.makeId(),
-        type: "NoteText",
+        type: "NoteMap",
         isPinned: false,
         color:null,
         info: {
-            txt: "Fullstack Me Baby!"
+            map: "New york"
         }
     },{
         id:utilService.makeId(),
-        type: "NoteText",
+        type: "NoteImg",
         isPinned: false,
         color:null,
         info: {
-            txt: "Fullstack Me Baby!"
+            img: "https://images.pexels.com/photos/207962/pexels-photo-207962.jpeg?cs=srgb&dl=pexels-pixabay-207962.jpg&fm=jpg"
         }
-    },{
+    }
+    ,{
         id:utilService.makeId(),
-        type: "NoteText",
+        type: "NoteTodos",
         isPinned: false,
         color:null,
         info: {
-            txt: "Fullstack Me Baby!"
+            list: "Matan, Nadav,Harel,Ilai"
         }
-    },{
+    }
+    ,{
         id:utilService.makeId(),
-        type: "NoteText",
+        type: "NoteAudio",
         isPinned: false,
         color:null,
         info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },{
-        id:utilService.makeId(),
-        type: "NoteText",
-        isPinned: false,
-        color:null,
-        info: {
-            txt: "Fullstack Me Baby!"
+            audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
         }
     },
+
+    
 ];
