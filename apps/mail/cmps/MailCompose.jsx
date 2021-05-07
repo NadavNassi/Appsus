@@ -12,7 +12,7 @@ class _MailCompose extends React.Component {
   componentDidMount() {
     if (this.props.mail) {
       let { body, subject, from } = this.props.mail
-      subject = `re::${from} ` + subject
+      subject = `re:from:${from}: ` + subject
       body = '\n \n \n ==================' + body
       this.setState(prevState => ({
         composeMail: {
@@ -47,10 +47,13 @@ class _MailCompose extends React.Component {
     const { to, subject, body } = this.state.composeMail
     return (
       <React.Fragment>
-        <div className="compose-screen">
-          <form className='compose-mail animate__animated animate__fadeInUp' onSubmit={this.onSubmit}>
-          <div className="compose-header"><h5>New Mail</h5> <button className="close-mail" onClick={this.onCloseModal}><i className="fas fa-times"></i></button></div>
-            <input type="email" name="from" id="compose-to" value={to} onChange={this.handleChange} placeholder="To" />
+        <div className="compose-screen"></div>
+        <div className="compose-modal">
+          <form className='compose-mail' onSubmit={this.onSubmit}>
+            <h3>{this.props.mail ? `Replay ${this.props.mail.from}` : 'New mail'}</h3>
+            <label htmlFor="compose-to">To</label>
+            <input type="email" name="from" id="compose-to" value={to} onChange={this.handleChange} />
+            <label htmlFor='compose-subject'>Subject</label>
             <input
               value={subject}
               name='subject'

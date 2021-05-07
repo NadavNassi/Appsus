@@ -2,13 +2,12 @@ const { Link, Route } = ReactRouterDOM;
 
 import { ReviewList } from '../cmps/ReviewList.jsx';
 import { Loader } from "../../../cmps/Loader.jsx";
-// import { LongText } from '../cmps/LongText.jsx';
 import { ReviewAdd } from "../cmps/ReviewAdd.jsx";
 import { bookService } from "../services/book.service.js";
-// import { LongTxt } from '../cmps/LongTxt.jsx'
 
 export class BookDetails extends React.Component {
   state = {
+    readMore: false,
     isReadMore: false,
     book: null,
   };
@@ -55,7 +54,7 @@ export class BookDetails extends React.Component {
   };
 
   getBookCategories = () => {
-    return this.state.book.categories.join(",");
+    return this.state.book.categories.join(", ");
   };
 
   getCurrencySymbole = () => {
@@ -106,61 +105,64 @@ export class BookDetails extends React.Component {
     if (!book) return <Loader />;
     const { reviews } = book;
     return (
-      <article className='book-container container'>
-        <img className='img-details' src={book.thumbnail} alt='' />
+      <article className='book-container'>
+        <div className="book-details">
+          <img className='img-details' src={book.thumbnail} alt='' />
+          <Route component={ReviewAdd} path='/book/read/:bookId/add-review' />
+          <div>
+            <div className="review-section">
+              <Link to={`/book/read/${book.id}/add-review`}>Add review</Link>
+            </div>
+            <div className="review-display">
+              <h2>Reviews</h2>
+              {!reviews ? (
+                <h4>No reviews yet</h4>
+              ) : (
+                <div className='show-reviews'>
+                  <div>Name</div>
+                  <div>Rate</div>
+                  <div>Date</div>
+                  <div>Review</div>
+                  <div>Delete review</div>
+                  <ReviewList reviews={reviews} removeReview={this.onRemoveReview} />
+                </div>
+              )}
+            </div>
+          </div>
+
+        </div>
         <div className='book-desc'>
-          <h2>{book.title}</h2>
-          <small>{book.subtitle}</small>
-          <h3 className='authors-names'>
-            {book.authors.map((author) => (
-              <span key={author}>{author}</span>
-            ))}
-          </h3>
-          <hr />
-          <div className="book-desc">
+          <div className="book-titles">
+            <h2>{book.title}</h2>
+            <small>{book.subtitle}</small>
+            <h3 className='authors-names'>
+              {book.authors.map((author) => (
+                <span key={author}>{author}</span>
+              ))}
+            </h3>
+          </div>
+          <div className="book-about">
             <label htmlFor='bookDesc'>About this book:</label>
             <p>{this.getTxt()}</p>
-            {/* <LongTxt txt={book.description} /> */}
-            <hr />
+            <div className='book-categories'>
+              <div className='page-count'>{this.getPageCount()}</div>
+              <div className='boo-age'>{this.getHowOld()}</div>
+              <small>categories: {this.getBookCategories()}</small>
+              {book.listPrice.isOnSale && (
+                <p className='sale'>This book is on sale</p>
+              )}
+              <p className={this.markPrice()}>
+                {book.listPrice.amount} {this.getCurrencySymbole()}
+              </p>
+            </div>
           </div>
-          <div className='page-count'>{this.getPageCount()}</div>
-          <div className='boo-age'>{this.getHowOld()}</div>
-          <div className='book-categories'>
-            <small>categories: {this.getBookCategories()}</small>
-          </div>
-          {book.listPrice.isOnSale && (
-            <p className='sale'>This book is on sale</p>
-          )}
-          <p className={this.markPrice()}>
-            {book.listPrice.amount} {this.getCurrencySymbole()}
-          </p>
-          <button onClick={this.onCloseModal}>Close</button>
-        </div>
-        <Route component={ReviewAdd} path='/book/read/:bookId/add-review' />
-        <div>
-          <div className="review-section">
-            <Link to={`/book/read/${book.id}/add-review`}>Add review</Link>
-          </div>
-          <div className="review-display">
-            <h2>Reviews</h2>
-            {!reviews ? (
-              <h4>No reviews yet</h4>
-            ) : (
-              <div className='show-reviews'>
-                <div>Name</div>
-                <div>Rate</div>
-                <div>Date</div>
-                <div>Review</div>
-                <div>Delete review</div>
-                <ReviewList reviews={reviews} removeReview={this.onRemoveReview} />
-              </div>
-            )}
+          <div className="nav-btns">
+            <button onClick={this.onCloseModal}>Close</button>
+            <Link className='btn-next decoration-none' to={`/book/read/${bookService.getPrevBookId(book.id)}`}>Previews</Link>
+            <Link className='btn-preview decoration-none' to={`/book/read/${bookService.getNextBookId(book.id)}`}>Next</Link>
           </div>
         </div>
-        <div className="nav-btns">
-          <Link to={`/book/read/${bookService.getPrevBookId(book.id)}`}>Previews</Link>
-          <Link to={`/book/read/${bookService.getNextBookId(book.id)}`}>Next</Link>
-        </div>
+
       </article>
     );
   }
