@@ -190,7 +190,7 @@ function _createDB() {
     ],
     labels: [
       'All',
-      'Star',
+      'Starred',
       'Inbox',
       'Sent',
     ]
@@ -330,11 +330,11 @@ function toggleMailStar(mailId) {
   const mailIdx = gMail.mails.findIndex(mail => {
     return mail.id === mailId
   })
-  if (gMail.mails[mailIdx].labels.includes('Star')) {
-    const labelIdx = gMail.mails[mailIdx].labels.findIndex(label => label === 'Star')
+  if (gMail.mails[mailIdx].labels.includes('Starred')) {
+    const labelIdx = gMail.mails[mailIdx].labels.findIndex(label => label === 'Starred')
     gMail.mails[mailIdx].labels.splice(labelIdx)
   } else {
-    gMail.mails[mailIdx].labels.push('Star')
+    gMail.mails[mailIdx].labels.push('Starred')
   }
   _saveToStorage()
   return Promise.resolve(gMail.mails)

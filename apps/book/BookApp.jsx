@@ -28,7 +28,7 @@ export class BookApp extends React.Component {
         const { books } = this.state;
         if (!books) return <Loader />
         return (
-            <section className='book-app animate__animated animate__fadeInRight'>
+            <section className='book-app '>
 
                 <BookFilter onSetFilter={this.onSetFilter} />
                 <BookList books={books} />

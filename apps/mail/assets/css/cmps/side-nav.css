@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     background-color: #dfe6e9;
-    height: fit-content;
     margin: .4rem;
     padding: .4rem;
     min-width: 120px;
@@ -17,6 +16,9 @@
     padding: 10px;
 }
 
+.labels>*{
+    padding-inline-end: .4rem;
+}
 .side-nav-list>* {
     text-align: center;
     color: #2d3436;

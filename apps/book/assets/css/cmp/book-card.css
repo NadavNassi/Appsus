@@ -83,6 +83,7 @@
   }
   
   .card-description {
+    --animate-duration: 0.5s;
     color: white;
     position: absolute;
     max-width: 100%;

@@ -31,7 +31,7 @@ export class BookPreview extends React.Component {
           <img  src={this.props.book.thumbnail} />
         </div>
         {this.state.showText && (
-          <p className="card-description">
+          <p className="card-description animate__animated animate__fadeInDown">
             {this.changeIsLongTxtShown}
           </p>
         )}

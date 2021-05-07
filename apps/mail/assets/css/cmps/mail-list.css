@@ -14,16 +14,23 @@
 }
 
 .mail-list thead {
-  background-color: #2d3436;
-  color: aliceblue;
+  background-color: #2f3542;
+  color: #f1f2f6;
   border: 1px solid black;
 }
 
 .mail-list tbody {
-  background-color: #dfe6e9;
+  background-color: #f1f2f6;
+}
+
+.mail-list tr.mail-preview:hover {
+  transition: .3s;
+  background-color: #2f3542;
+  color: #f1f2f6;
 }
 
 td {
+  min-width: 50px;
   padding-inline-start: .5rem;
   overflow: scroll;
   border:none;
