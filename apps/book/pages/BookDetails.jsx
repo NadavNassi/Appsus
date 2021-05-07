@@ -129,7 +129,6 @@ export class BookDetails extends React.Component {
               )}
             </div>
           </div>
-
         </div>
         <div className='book-desc'>
           <div className="book-titles">
