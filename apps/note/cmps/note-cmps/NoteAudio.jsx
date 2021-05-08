@@ -1,5 +1,4 @@
 export function NoteAudio({ note }) {
-    console.log(note)
   return <div> <audio
   className="audio-container"
   controls

@@ -1,4 +1,3 @@
-
 export class MailFilter extends React.Component {
   state = {
     filterBy: {
@@ -37,19 +36,21 @@ export class MailFilter extends React.Component {
   render() {
     const { txt, mailStatus } = this.state.filterBy;
     return (
+      
       <form
-        className='mail-filter flex space-evenly center'
+        className='mail-filter flex  center'
         onSubmit={this.onFilter}
       >
+        
         <h4>Search for mails: </h4>
-        <div className='filter-search-container'>
+        <div className='mail-filter-container'>
 
           <input
             type='text'
             value={txt}
             name='txt'
             onChange={this.handleChange}
-            placeholder='type to search'
+            placeholder='Type to search'
           />
           <select
             name='mailStatus'
@@ -60,8 +61,6 @@ export class MailFilter extends React.Component {
             <option value='read'>Read</option>
             <option value='unRead'>Unread</option>
           </select>
-          <button className="filter-search-btn">Search</button>
-
         </div>
       </form>
     );

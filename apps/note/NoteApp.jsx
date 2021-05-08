@@ -12,7 +12,6 @@ export class NoteApp extends React.Component {
     selectedNote: null,
   };
   componentDidMount() {
-      console.log(this.state.notes);
     this.loadNotes();
   }
   loadNotes() {

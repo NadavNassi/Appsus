@@ -27,7 +27,7 @@ export function MailPreview({ mail, onReadMail, onRemoveMail, onStarMail }) {
       <td className='actions-btns flex'>
         <i className="btn btn-remove fas fa-trash-alt" onClick={() => onRemoveMail(id)}></i>
         {!isRead ? <i className="btn btn-toggle-read fas fa-envelope" onClick={() => onReadMail(id)}></i> : <i className="fas fa-envelope-open" onClick={() => onReadMail(id)}></i>}
-        {labels.includes('Star') ? <i className="fas fa-star" onClick={() => onStarMail(id)}></i> : <i className="far fa-star" onClick={() => onStarMail(id)}></i>}
+        {labels.includes('Starred') ? <i className="fas fa-star" onClick={() => onStarMail(id)}></i> : <i className="far fa-star" onClick={() => onStarMail(id)}></i>}
       </td>
     </tr>
 

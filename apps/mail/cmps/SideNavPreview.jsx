@@ -21,13 +21,24 @@ export class SideNavPreview extends React.Component {
         this.props.onLabelSelect(label)
         this.props.setActiveLabel(label)
     }
+    setIcon = (label) => {
+        if(label.includes('Starred')){
+            return <i className="far fa-star"></i>;
+        }else if(label.includes('Inbox')){
+            return <i className="fas fa-inbox"></i>;
+        } else if(label.includes('Sent')){
+            return <i className="far fa-paper-plane"></i>;
+        } else{
+            return <i className="far fa-envelope"></i>
+        }
+    }
 
 
     render() {
         const { label, activeLabel } = this.props
         const { unreadMailCount } = this.state
         return (
-            <li onClick={() => this.onLabelClick(label)} className={`${label} ${activeLabel === label && 'active'}`}>{label} {label === 'Inbox' && unreadMailCount > 0 && `(${unreadMailCount})`}</li>
+            <li onClick={() => this.onLabelClick(label)} className={` labels ${label} ${activeLabel === label && 'active'}`}>{this.setIcon(label)}{label} {label === 'Inbox' && unreadMailCount > 0 && `(${unreadMailCount})`}</li>
         )
     }
 }
