@@ -98,9 +98,7 @@ export class MailApp extends React.Component {
         <MailFilter onSetFilter={this.onSetFilter} />
         <div className="mail-app-grid">
           <SideNav labels={labels} onLabelSelect={this.onLabelSelect} onAddLabel={this.onAddLabel} onCloseModal={this.onCloseModal} />
-          <div className="not-nav animate__animated animate__fadeInLeft">
             <MailList mails={mails} onReadMail={this.onReadMail} onRemoveMail={this.onRemoveMail} onStarMail={this.onStarMail} sortMail={this.sortMail} sortedBy={sortedBy} />
-          </div>
           <Route exact component={() => <MailCompose onComposeMail={this.onComposeMail} />} exact path={'/mail/compose-mail'} />
           <Link className='compose-btn' to='/mail/compose-mail'>
             <i className="fas fa-plus"></i>

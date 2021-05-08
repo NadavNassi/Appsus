@@ -66,6 +66,9 @@ td {
     border-bottom: 1px solid #000;
     overflow: hidden;
 }
+.mail-list{
+    align-self: center;
+}
 
 .actions-btns {
     justify-content: space-evenly;

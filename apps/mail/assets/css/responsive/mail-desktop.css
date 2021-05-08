@@ -17,6 +17,9 @@
     justify-content: flex-start;
 }
 
+.mail-list{
+    align-self: flex-start;
+}
 .side-nav-list {
     flex-direction: column;
 }

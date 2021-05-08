@@ -39,6 +39,9 @@ td {
   overflow: scroll;
   border: none;
 }
+.no-mails{
+  text-align: center;
+}
 
 td>* {
   padding: .3rem;
