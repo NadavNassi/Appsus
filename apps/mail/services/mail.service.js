@@ -11,6 +11,7 @@ let gMail = _loaFromStorage()
 
 export const mailService = {
   query,
+  sortMail,
   getMailById,
   remove,
   toggleIsRead,
@@ -29,164 +30,44 @@ function _createDB() {
     mails: [
       {
         id: makeId(),
-        from: 'eBay',
+        from: 'eBay@ebay.com',
         subject: '3 tips for shopping abroad',
         body:
           'Ask the Seller for Express Shipping \n Even if Express Shipping isn/’t in the listing, you can contact the seller directly via private message and ask them to use express services.',
         isRead: false,
-        sentAt: '24/4/21',
+        sentAt: 1601163530583,
         labels: ['All', 'Inbox'],
       },
       {
         id: makeId(),
-        from: 'Liel',
+        from: 'Liel@example.com',
         subject: 'Sally Magrisso turns 93 today',
         body:
           'Maybe call her and wish her happy birthday? she miss you a lot',
         isRead: false,
-        sentAt: '25/4/21',
+        sentAt: 1581133930583,
         labels: ['All', 'Inbox'],
       },
       {
         id: makeId(),
-        from: 'Ilai',
+        from: 'Ilai@italy.com',
         subject: 'bit by bit',
         body:
           'whatsuuuppppp?!?!?!???!?!?!?!',
         isRead: true,
-        sentAt: '1/5/21',
+        sentAt: 1611243930583,
         labels: ['All', 'Inbox', 'Star'],
       },
       {
         id: makeId(),
-        from: 'Matan',
+        from: 'Matan@findMap.com',
         subject: 'Things are getting better',
         body:
           'I\'m almost done with the map, can you login and take a look?',
         isRead: false,
-        sentAt: '2/5/21',
+        sentAt: 1601353930583,
         labels: ['All', 'Inbox'],
       },
-      {
-        id: makeId(),
-        from: 'Matan',
-        subject: 'Things are getting better',
-        body:
-          'I\'m almost done with the map, can you login and take a look?',
-        isRead: false,
-        sentAt: '24/4/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Liel',
-        subject: 'Checking on your progress',
-        body:
-          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
-        isRead: false,
-        sentAt: '25/4/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Ilai',
-        subject: 'bit by bit',
-        body:
-          'whatsuuuppppp?!?!?!???!?!?!?!',
-        isRead: true,
-        sentAt: '1/5/21',
-        labels: ['All', 'Inbox', 'Star'],
-      },
-      {
-        id: makeId(),
-        from: 'Matan',
-        subject: 'Things are getting better',
-        body:
-          'I\'m almost done with the map, can you login and take a look?',
-        isRead: false,
-        sentAt: '2/5/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Matan',
-        subject: 'Things are getting better',
-        body:
-          'I\'m almost done with the map, can you login and take a look?',
-        isRead: false,
-        sentAt: '24/4/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Liel',
-        subject: 'Checking on your progress',
-        body:
-          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
-        isRead: false,
-        sentAt: '25/4/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Ilai',
-        subject: 'bit by bit',
-        body:
-          'whatsuuuppppp?!?!?!???!?!?!?!',
-        isRead: true,
-        sentAt: '1/5/21',
-        labels: ['All', 'Inbox', 'Star'],
-      },
-      {
-        id: makeId(),
-        from: 'Matan',
-        subject: 'Things are getting better',
-        body:
-          'I\'m almost done with the map, can you login and take a look?',
-        isRead: false,
-        sentAt: '2/5/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Matan',
-        subject: 'Things are getting better',
-        body:
-          'I\'m almost done with the map, can you login and take a look?',
-        isRead: false,
-        sentAt: '24/4/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Liel',
-        subject: 'Checking on your progress',
-        body:
-          'Hope evreything going well. i won\'t be around in the next few days but im available on the phone and slack if you need anything',
-        isRead: false,
-        sentAt: '25/4/21',
-        labels: ['All', 'Inbox'],
-      },
-      {
-        id: makeId(),
-        from: 'Ilai',
-        subject: 'bit by bit',
-        body:
-          'whatsuuuppppp?!?!?!???!?!?!?!',
-        isRead: true,
-        sentAt: '1/5/21',
-        labels: ['All', 'Inbox', 'Star'],
-      },
-      {
-        id: makeId(),
-        from: 'Matan',
-        subject: 'Things are getting better',
-        body:
-          'I\'m almost done with the map, can you login and take a look?',
-        isRead: false,
-        sentAt: '2/5/21',
-        labels: ['All', 'Inbox'],
-      }
     ],
     labels: [
       'All',
@@ -205,7 +86,7 @@ function query(filterBy) {
   if (!filterBy.txt && filterBy.mailStatus === '') {
     return Promise.resolve(gMail);
   }
-  
+
   let { txt, mailStatus } = filterBy;
   const filteredBy = {}
   if (mailStatus === 'read') mailStatus = true
@@ -222,6 +103,13 @@ function query(filterBy) {
   if (mailStatus !== 'all') filteredBy.mails = filteredBy.mails.filter(mail => mail.isRead === mailStatus)
   filteredBy.labels = gMail.labels
   return Promise.resolve(filteredBy);
+}
+
+function sortMail(userData, sortedBy) {
+  userData.mails.sort((a, b) => {
+    return (new Date(a.sentAt) - new Date(b.sentAt)) * sortedBy
+  })
+  return Promise.resolve(userData)
 }
 
 

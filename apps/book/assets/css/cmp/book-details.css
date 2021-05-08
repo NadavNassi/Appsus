@@ -1,7 +1,5 @@
 .book-container {
     height: 100vh;
-    display: grid;
-    grid-template-columns: 40% 60%;
 }
 
 .book-details {
@@ -29,4 +27,9 @@
     font-size: .9rem;
     border-radius: 2px;
     padding-inline: 5px;
+}
+
+.show-reviews {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
 }

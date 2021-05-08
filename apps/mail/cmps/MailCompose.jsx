@@ -44,13 +44,13 @@ class _MailCompose extends React.Component {
 
 
   render() {
-    const { to, subject, body } = this.state.composeMail
+    const { from, subject, body } = this.state.composeMail
     return (
       <React.Fragment>
         <div className="compose-screen">
           <form className='compose-mail animate__animated animate__fadeInUp' onSubmit={this.onSubmit}>
-          <div className="compose-header"><h5>{this.props.mail ? `Replay ${this.props.mail.from}` : 'New mail'}</h5> <button className="close-mail" onClick={this.onCloseModal}><i className="fas fa-times"></i></button></div>
-            <input type="email" name="from" id="compose-to" value={to} onChange={this.handleChange} placeholder="To" />
+            <div className="compose-header"><h5>{this.props.mail ? `Replay ${this.props.mail.from}` : 'New mail'}</h5> <button className="close-mail" onClick={this.onCloseModal}><i className="fas fa-times"></i></button></div>
+            <input type="email" name="from" id="compose-to" value={from} onChange={this.handleChange} placeholder="To" />
             <input
               value={subject}
               name='subject'

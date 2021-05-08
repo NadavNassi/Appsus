@@ -22,13 +22,13 @@ export class SideNavPreview extends React.Component {
         this.props.setActiveLabel(label)
     }
     setIcon = (label) => {
-        if(label.includes('Starred')){
+        if (label.includes('Star')) {
             return <i className="far fa-star"></i>;
-        }else if(label.includes('Inbox')){
+        } else if (label.includes('Inbox')) {
             return <i className="fas fa-inbox"></i>;
-        } else if(label.includes('Sent')){
+        } else if (label.includes('Sent')) {
             return <i className="far fa-paper-plane"></i>;
-        } else{
+        } else {
             return <i className="far fa-envelope"></i>
         }
     }

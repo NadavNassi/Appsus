@@ -1,0 +1,17 @@
+.book-app {
+    overflow: auto;
+}
+
+.book-filter {
+    flex-direction: column;
+    padding: 5px;
+}
+
+.book-filter>* {
+    padding: 5px;
+}
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+}

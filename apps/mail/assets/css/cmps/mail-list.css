@@ -19,6 +19,10 @@
   border: 1px solid black;
 }
 
+thead .time {
+  cursor: pointer;
+}
+
 .mail-list tbody {
   background-color: #f1f2f6;
 }
@@ -33,8 +37,9 @@ td {
   min-width: 50px;
   padding-inline-start: .5rem;
   overflow: scroll;
-  border:none;
+  border: none;
 }
+
 td>* {
   padding: .3rem;
 }
