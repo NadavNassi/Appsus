@@ -32,7 +32,7 @@ export function Home() {
             <div className="about-us-inner-container-img">
               <div className="matans-container">
                 <h2 className="devs-about-title">Matan Lasry</h2>
-                <img src="../assets/img/matanImg.jfif" />
+                <img src="assets/img/matanImg.jfif" />
                 <div className="social-media">
                   <ul className="social-media-list clean-list">
                     <li><div className='link-media link-media-github'>
