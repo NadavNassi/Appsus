@@ -56,7 +56,7 @@ function _createDB() {
           'whatsuuuppppp?!?!?!???!?!?!?!',
         isRead: true,
         sentAt: 1611243930583,
-        labels: ['All', 'Inbox', 'Star'],
+        labels: ['All', 'Inbox'],
       },
       {
         id: makeId(),
@@ -67,6 +67,16 @@ function _createDB() {
         isRead: false,
         sentAt: 1601353930583,
         labels: ['All', 'Inbox'],
+      },
+      {
+        id: makeId(),
+        from: 'Harel@my-design.com',
+        subject: 'Look at my design!',
+        body:
+          'I\'ve finally done with the design for the gallery. Go check it at my repo. I hope you will like it as much as i am',
+        isRead: false,
+        sentAt: 1601173930583,
+        labels: ['All', 'Inbox', 'Starred'],
       },
     ],
     labels: [
@@ -160,7 +170,8 @@ function _createMail({ subject, body, from }) {
   console.log('in create mail');
   const newMail = {
     id: makeId(),
-    from: from,
+    from: 'Me',
+    to: from,
     subject: subject,
     body: body,
     isRead: true,

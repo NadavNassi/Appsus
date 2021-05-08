@@ -22,11 +22,7 @@
 .btn-next, .btn-preview {
     color: black;
     cursor: pointer;
-    background-color: rgb(235, 235, 235);
-    border: 1px solid black;
-    font-size: .9rem;
-    border-radius: 2px;
-    padding-inline: 5px;
+    font-size: 1.8rem;
 }
 
 .show-reviews {

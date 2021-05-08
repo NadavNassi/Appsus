@@ -156,9 +156,9 @@ export class BookDetails extends React.Component {
             </div>
           </div>
           <div className="nav-btns">
-            <button onClick={this.onCloseModal}>Close</button>
-            <Link className='btn-next decoration-none' to={`/book/read/${bookService.getPrevBookId(book.id)}`}>Previews</Link>
-            <Link className='btn-preview decoration-none' to={`/book/read/${bookService.getNextBookId(book.id)}`}>Next</Link>
+            <button onClick={this.onCloseModal}>Back to library</button>
+            <Link className='btn-next decoration-none' to={`/book/read/${bookService.getPrevBookId(book.id)}`}><i className="fas fa-step-backward" title='previews book'></i></Link>
+            <Link className='btn-preview decoration-none' to={`/book/read/${bookService.getNextBookId(book.id)}`}><i className="fas fa-step-forward" title='next book'></i></Link>
           </div>
         </div>
 
