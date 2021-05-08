@@ -26,7 +26,8 @@ export class BookDetails extends React.Component {
     const { bookId } = this.props.match.params;
     bookService.getBookById(bookId).then((book) => {
       if (!book) return this.props.history.push("/book");
-      this.setState({ book });
+      if (book.description.length > 100) this.setState({ book, readMore: true })
+      else this.setState({ book });
     });
   };
 
@@ -83,8 +84,6 @@ export class BookDetails extends React.Component {
     this.setState({ book })
   }
 
-
-
   onRemoveReview = (review) => {
     console.log('review.id', review);
     bookService.removeReview(this.state.book, review)
@@ -94,10 +93,11 @@ export class BookDetails extends React.Component {
   getTxt = () => {
     let { description } = this.state.book
     if (!description) return
-    if (description.length > 100) {
-      description = this.state.isReadMore ? description : description.substring(0, 100) + "...";
+    let txt = ''
+    if (this.state.readMore) {
+      txt = this.state.isReadMore ? description : description.substring(0, 100) + "...";
     }
-    return description
+    return txt
   }
 
   render() {
@@ -142,7 +142,7 @@ export class BookDetails extends React.Component {
           </div>
           <div className="book-about">
             <label htmlFor='bookDesc'>About this book:</label>
-            <p>{this.getTxt()}</p>
+            <p>{this.getTxt()} {this.state.readMore && <button onClick={this.toggleReadMore}>{this.state.isReadMore ? 'Read less' : 'Read more'}</button>}</p>
             <div className='book-categories'>
               <div className='page-count'>{this.getPageCount()}</div>
               <div className='boo-age'>{this.getHowOld()}</div>
