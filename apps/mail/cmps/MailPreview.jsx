@@ -3,9 +3,14 @@ const { Link } = ReactRouterDOM;
 
 export function MailPreview({ mail, onReadMail, onRemoveMail, onStarMail }) {
   const { subject, body, sentAt, isRead, from, id, labels } = mail;
-
+  const aDay = 86400000
   const getTime = () => {
-    return new Date(sentAt).toLocaleString()
+    const date = new Date(sentAt)
+    if (new Date(Date.now()) - date < aDay) {
+      return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    }
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+    // return date.toLocaleDateString()
   };
 
   const getBody = () => {
@@ -13,11 +18,9 @@ export function MailPreview({ mail, onReadMail, onRemoveMail, onStarMail }) {
     return txt;
   };
 
-
-
   return (
     <tr className='mail-preview'>
-      <td><Link className={`decoration-none from-td`} to={`/mail/read/${id}`}>{from}</Link></td>
+      <td><Link className={`decoration-none from-td`} to={`/mail/read/${id}`}>{from.split('@', 1)}</Link></td>
       <td><Link className={`decoration-none subject-td`} to={`/mail/read/${id}`}>{subject}</Link></td>
       <td><Link className={`decoration-none body-td`} to={`/mail/read/${id}`}>{getBody()}</Link></td>
       <td><Link className={`decoration-none time-td`} to={`/mail/read/${id}`}>{getTime()}</Link></td>
