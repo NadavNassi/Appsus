@@ -35,7 +35,7 @@ function _createDB() {
         body:
           'Ask the Seller for Express Shipping \n Even if Express Shipping isn/’t in the listing, you can contact the seller directly via private message and ask them to use express services.',
         isRead: false,
-        sentAt: new Date('25/4/2021'),
+        sentAt: 1601163530583,
         labels: ['All', 'Inbox'],
       },
       {
@@ -45,7 +45,7 @@ function _createDB() {
         body:
           'Maybe call her and wish her happy birthday? she miss you a lot',
         isRead: false,
-        sentAt: new Date('21/3/2019'),
+        sentAt: 1581133930583,
         labels: ['All', 'Inbox'],
       },
       {
@@ -55,7 +55,7 @@ function _createDB() {
         body:
           'whatsuuuppppp?!?!?!???!?!?!?!',
         isRead: true,
-        sentAt: new Date('1/5/2021'),
+        sentAt: 1611243930583,
         labels: ['All', 'Inbox', 'Star'],
       },
       {
@@ -65,7 +65,7 @@ function _createDB() {
         body:
           'I\'m almost done with the map, can you login and take a look?',
         isRead: false,
-        sentAt: new Date('2/5/2021'),
+        sentAt: 1601353930583,
         labels: ['All', 'Inbox'],
       },
     ],

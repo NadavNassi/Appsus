@@ -3,6 +3,7 @@ const { Link } = ReactRouterDOM;
 import { MailPreview } from './MailPreview.jsx';
 
 export function MailList({ mails, onReadMail, onRemoveMail, onStarMail, sortMail, sortedBy }) {
+  if (mails.length === 0) return <h2>No mails to show</h2>
   return (
     <section className='mail-list'>
       <table>

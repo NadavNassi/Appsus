@@ -115,7 +115,7 @@ export class BookDetails extends React.Component {
             </div>
             <div className="review-display">
               <h2>Reviews</h2>
-              {!reviews ? (
+              {(!reviews) ? (
                 <h4>No reviews yet</h4>
               ) : (
                 <div className='show-reviews'>

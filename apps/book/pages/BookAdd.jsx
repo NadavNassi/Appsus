@@ -82,6 +82,7 @@ class _BookAdd extends React.Component {
             value={this.state.searchInput}
             onChange={this.handleChange}
           />
+          <button type='submit'>Search</button>
         </form>
         <ul className="search-results clean-list">
           {results && <ResultList searchResults={results} onAddBook={this.onAddBook} />}
