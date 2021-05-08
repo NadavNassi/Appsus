@@ -11,17 +11,17 @@ export function Home() {
           <ul className="anchor-home-list clean-list">
             <li>
               <NavLink to="/note">
-                <img src="../assets/img/notes.png" />
+                <img src="assets/img/notes.png" />
               </NavLink>
             </li>
             <li>
               <NavLink to="/mail">
-                <img src="../assets/img/mails.jpg" />
+                <img src="assets/img/mails.jpg" />
               </NavLink>
             </li>
             <li>
               <NavLink to="/book">
-                <img src="../assets/img/books.jpg" />
+                <img src="assets/img/books.jpg" />
               </NavLink>
             </li>
           </ul>
@@ -48,7 +48,7 @@ export function Home() {
               </div>
               <div className="nadavs-container">
                 <h2 className="devs-about-title">Nadav Nassi</h2>
-                <img src="../assets/img/NadavImg.jpeg" />
+                <img src="assets/img/NadavImg.jpeg" />
                 <div className="social-media">
                   <ul className="social-media-list clean-list">
                     <li><div className='link-media link-media-github'>
