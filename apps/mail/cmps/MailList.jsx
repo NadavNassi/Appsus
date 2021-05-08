@@ -3,7 +3,6 @@ const { Link } = ReactRouterDOM;
 import { MailPreview } from './MailPreview.jsx';
 
 export function MailList({ mails, onReadMail, onRemoveMail, onStarMail, sortMail, sortedBy }) {
-  if (mails.length === 0) return <h2>No mails to show</h2>
   return (
     <section className='mail-list'>
       <table>
@@ -17,7 +16,7 @@ export function MailList({ mails, onReadMail, onRemoveMail, onStarMail, sortMail
           </tr>
         </thead>
         <tbody>
-          {mails.map((mail) => {
+          {(mails.length === 0) ? <tr colSpan='6'><td><h2>No mails to show</h2></td></tr> : mails.map((mail) => {
             return (
               <MailPreview key={mail.id} mail={mail} onReadMail={onReadMail} onRemoveMail={onRemoveMail} onStarMail={onStarMail} />
             );
