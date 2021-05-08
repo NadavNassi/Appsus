@@ -55,7 +55,6 @@ export class BookFilter extends React.Component {
             value={maxPrice}
             onChange={this.handleChange}
           />
-          <button className='book-filter-btn'>Filter</button>
         </form>
       </div>
     );
