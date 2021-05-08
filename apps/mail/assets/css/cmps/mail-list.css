@@ -1,15 +1,15 @@
 .mail-list {
   /* grid-template-columns: 10% 10% 65% 10% 5%; */
   
-  padding: 10px;
   max-width: 90%;
-  margin: 0 auto;
+  flex: 1;
 }
 
 .mail-list table {
   border-collapse: collapse;
-  margin: 0 auto;
-  min-width: 80%;
+  margin-block-start: .4rem;
+  width: 100%;
+  margin-inline-end:.2rem;
   box-shadow:0 0 4px 0
 }
 
