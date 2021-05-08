@@ -11,7 +11,7 @@ export function Home() {
           <ul className="anchor-home-list clean-list">
             <li>
               <NavLink to="/note">
-                <img src="/assets/img/notes.png" />
+                <img src="../assets/img/notes.png" />
               </NavLink>
             </li>
             <li>
