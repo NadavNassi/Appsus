@@ -11,6 +11,10 @@
     padding: 5px;
 }
 
+.book-filter-btn {
+    margin-top: 10px;
+}
+
 .book-container {
     display: flex;
     flex-direction: column;

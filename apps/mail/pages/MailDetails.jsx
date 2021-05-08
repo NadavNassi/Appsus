@@ -64,37 +64,33 @@ class _MailDetails extends React.Component {
     const { from, subject, body, labels, id } = this.state.mail;
     return (
       <section className='mail-details'>
+        <i className="fas fa-arrow-left btn back-btn" onClick={this.onCloseMail} title='back to mailbox'></i>
         <div className='mail'>
           <h3 className='from'>From: </h3>
           <p>{from}</p>
+          {this.state.mail.to && <h3 className='to'>To: </h3>}
+          {this.state.mail.to && <p>{this.state.mail.to}</p>}
           <h4 className='subject'>Subject: </h4>
           <p>{subject}</p>
           <h4 className='body'>Body:</h4>
           <p> {body}</p>
-          <h2>Labels:</h2>
           <div className="labels">
             <div className="user-labels">
-              <small>click label to remove</small>
-              <LabelList labels={labels} onClickLabels={this.onRemoveLabels} />
+              <small>Mail label</small>
+              <LabelList labels={labels} isToAdd={false} onClickLabels={this.onRemoveLabels} />
             </div>
             <div className="available-labels">
-              <small>Select new label</small>
-              <LabelList labels={this.getLabels()} onClickLabels={this.onAddLabel} />
+              <small>Add label to mail</small>
+              <LabelList labels={this.getLabels()} isToAdd={true} onClickLabels={this.onAddLabel} />
             </div>
           </div>
         </div>
         <div className='edit-mail flex'>
-          <button className='btn back-btn' onClick={this.onCloseMail}>Back to mail box</button>
           <Route exact component={() => <MailCompose mail={this.state.mail} onComposeMail={this.onComposeMail} />} exact path={`/mail/read/:mailId/replay-mail`} />
           <Link className='replay-btn decoration-none' to={`/mail/read/${id}/replay-mail`}>
-            Replay
+            <i className="fas fa-reply" title='replay mail'></i>
           </Link>
-          <button
-            className='btn delete-btn right-self'
-            onClick={this.onRemoveMail}
-          >
-            Delete mail
-          </button>
+          <i className="fas fa-dumpster btn delete-btn right-self" onClick={this.onRemoveMail} title='remove mail'></i>
         </div>
       </section>
     );

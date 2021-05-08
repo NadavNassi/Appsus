@@ -29,7 +29,7 @@ export class BookFilter extends React.Component {
     return (
       <div className='form-container'>
         <form className='book-filter' onSubmit={this.onFilter}>
-          <label htmlFor='byTitle'>By title</label>
+          Filter <label htmlFor='byTitle'>By title</label>
           <input
             type='text'
             id='byTitle'
@@ -55,7 +55,7 @@ export class BookFilter extends React.Component {
             value={maxPrice}
             onChange={this.handleChange}
           />
-          <button>Filter</button>
+          <button className='book-filter-btn'>Filter</button>
         </form>
       </div>
     );
