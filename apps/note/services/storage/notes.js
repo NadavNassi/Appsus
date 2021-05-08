@@ -7,7 +7,7 @@ export const notes = [
         isPinned: false,
         color:'light-green',
         info: {
-            video: "https://www.youtube.com/watch?v=z9eoubnO-pE&t=199s"
+            video: "https://www.youtube.com/watch?v=VvU27gvAK40"
         }
     }, {
         id:utilService.makeId(),
