@@ -106,7 +106,9 @@ export class BookDetails extends React.Component {
     const { reviews } = book;
     return (
       <article className='book-container'>
+        
         <div className="book-details">
+        <button className="back-libary-btn" onClick={this.onCloseModal}><i className="fas fa-arrow-left"></i></button>
           <img className='img-details' src={book.thumbnail} alt='' />
           <Route component={ReviewAdd} path='/book/read/:bookId/add-review' />
           <div>
@@ -156,7 +158,6 @@ export class BookDetails extends React.Component {
             </div>
           </div>
           <div className="nav-btns">
-            <button onClick={this.onCloseModal}>Back to library</button>
             <Link className='btn-next decoration-none' to={`/book/read/${bookService.getPrevBookId(book.id)}`}><i className="fas fa-step-backward" title='previews book'></i></Link>
             <Link className='btn-preview decoration-none' to={`/book/read/${bookService.getNextBookId(book.id)}`}><i className="fas fa-step-forward" title='next book'></i></Link>
           </div>

@@ -1,5 +1,6 @@
 .book-app {
     overflow: auto;
+    font-family: poppins,'Segoe UI', Tahoma, Geneva, Verdana, sans-ser;
 }
 
 .book-filter {
@@ -16,6 +17,8 @@
 }
 
 .book-container {
+    margin-top: 45px;
+    font-family: poppins,'Segoe UI', Tahoma, Geneva, Verdana, sans-ser;
     display: flex;
     flex-direction: column;
 }
