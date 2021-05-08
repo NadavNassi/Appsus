@@ -27,7 +27,7 @@ export class BookDetails extends React.Component {
     bookService.getBookById(bookId).then((book) => {
       if (!book) return this.props.history.push("/book");
       if (book.description.length > 100) this.setState({ book, readMore: true })
-      else this.setState({ book });
+      else this.setState({ book, readMore: false });
     });
   };
 
@@ -93,7 +93,7 @@ export class BookDetails extends React.Component {
   getTxt = () => {
     let { description } = this.state.book
     if (!description) return
-    let txt = ''
+    let txt = description
     if (this.state.readMore) {
       txt = this.state.isReadMore ? description : description.substring(0, 100) + "...";
     }
